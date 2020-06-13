@@ -5,16 +5,14 @@ const { request, response } = require('express');
 
 exports.getAllVolunteers = (request, response) => {
     db 
-        .collection('covid-hack-5267d')
+        .collection('Volunteers-Registers')
         .get()
         .then((data) => {
             let volunteers = [];
             data.forEach((doc) => {
-                volunteers.push({
-                    volunteerId: doc.id,
-                    volunteerSkill: doc.data().Skills,
-                    volunteerWork: doc.data().work  
-                });
+                volunteers.push(
+                    doc.data()    
+                );
             });
             return response.json(volunteers);
         })
