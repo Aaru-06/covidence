@@ -8,7 +8,7 @@ import "../../App.css";
 var fire = 'false';
 const Header = () => {
     return(
-        <Jumbotron className="jumbotron ">
+        <Jumbotron className="jumbo ">
             
                 <div className="row row-header">
                     <div className="col-12 col-sm-1">
