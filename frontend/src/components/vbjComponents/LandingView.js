@@ -3,16 +3,20 @@ import Button from '@material-ui/core/Button'
 import { Link, Route } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import '../../App.css';
+import Header from './HeaderView';
+
 
 const Landing = () => {
     return(
-        <div className="container">
-            
-            <div className="bg-text">
-                <h1>Welcome..</h1>
-                <Link to={ROUTES.SIGN_IN}>
-                    <Button variant="contained" color="primary">LOGIN/SIGNUP</Button>
-                </Link>
+        <div className="bg">
+            <Header />
+            <div className="container">
+                <div className="align">
+                    <h1>Click here to sign in</h1>
+                    <Link to={ROUTES.SIGN_IN}>
+                        <Button variant="contained" color="primary">SIGN IN</Button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

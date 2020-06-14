@@ -1,8 +1,8 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -12,11 +12,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
+/* .App-link {
+  color: #61dafb; */
+/* } */
 
 /* .bg{
   background-image: url("https://higherlogicdownload.s3.amazonaws.com/CSDA/b24702e8-8a42-4614-8c45-bc3cba37ea2c/UploadedImages/Homepage_Images/feature_bg_coronavirus.jpg");
@@ -26,24 +26,47 @@
 } */
 
 .bg{
- 
+  background-color: rgb(174, 151, 197);
+  background-size: cover;
+  min-height: 1000px;
   font-family: 'Montserrat', sans-serif;
 }
 
 
-.bg-text{
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0);
-  color: black;
-  font-family: 'Montserrat', sans-serif ;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
+.align{
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  margin: 25px;
 }
+
+.jumbotron{
+  background-color: black;
+  color: beige;
+}
+
+@media screen and (min-width: 600px){
+  .jumbotron {display: none;}
+}
+
+@media screen and (max-width: 700px){
+  .myImage {display: none;}
+  .contain{
+    max-width: 425px;
+    
+    
+  }
+  
+}
+
+/* @media screen and (max-width: 300px){
+  .myImage {
+    background-image: url("https://cdn.pixabay.com/photo/2020/03/31/14/04/covid-19-4987797__340.jpg");
+    max-width: 300%;
+    max-height: 100%;
+  }
+}
+ */
+
+ .top{
+   margin-top: 150px;
+ }

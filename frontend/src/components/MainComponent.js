@@ -6,6 +6,8 @@ import LoginView from './vbjComponents/LoginView';
 import firebase from '../config/firebase';
 import Dashboard from './vbjComponents/DashboardComponent';
 
+
+
 class Main extends Component{
     constructor(props){
         super(props);
