@@ -7,86 +7,29 @@ import * as ROUTES from '../../constants/routes';
 
 
 class LoginView extends Component{
-    constructor(props){
-        super(props);
-
-        this.state={
-            
-            otp: '',
-            success: false,
-            alert: false,
-            disabled: true
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);        
-
-
-
-    }
-
-    handleClick(e){
-        
+    handleClick = () => {
         let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
-        let number = '+91'+this.phoneno.value;
-        firebase.auth().signInWithPhoneNumber(number,recaptcha)
-            .then(function(e){
-                this.setState({disabled: false})
-                let code = prompt('enter the otp','');
-                if(code == null) return;
-                e.confirm(code)
-                    .then((result) => {
-                        console.log(result.user,'user');
-                    
-                        window.alert("Number Verified");
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-    }
-    
+        let number = '+918072297684';
+        firebase.auth().signInWithPhoneNumber(number,recaptcha).then(function(e){
+            let code = prompt('enter the otp','');
+            if(code == null) return;
+            e.confirm(code).then(function(result){
+                console.log(result.user,'user');
+                document.querySelector('label').textContent = result.user.phoneNumber + "Number Verified";
 
-    handleChange(e){
-        this.setState({
-            [e.target.name] : e.target.value
+            }).catch((error)=>{
+                console.log(error);
+            })
         })
     }
-
-    toggleModal(){
-        this.setState({
-            isModalRegister: !this.state.isModalRegister
-        });
-    }
-
-
     render(){
-
-        if(this.state.success){
-            return <Redirect to={ROUTES.DASHBOARD}/>
-        }
-        if(this.state.alert){
-            window.alert("Invalid User");
-        }
-        
         return(
-
             <div>
-                <input type="text" id="otp" innerRef={(input) => this.phoneno=input} />
-                <button onClick={this.handleClick} id="recaptcha">Verify</button>
-                
+                <label></label>
+                <button onClick={this.handleClick}>Click here</button>
             </div>
-            
-            
-           
-            
-
-        
-        );
+        )
     }
 }
 
-
 export default LoginView;
-
-
-
