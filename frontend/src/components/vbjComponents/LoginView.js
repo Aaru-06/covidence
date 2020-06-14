@@ -11,38 +11,40 @@ class LoginView extends Component{
         super(props);
 
         this.state={
-            fullname: '',
-            email: '',
-            password: '',
-            dob: '',
-            phoneno: '',
-            isModalRegister: false,
+            
+            otp: '',
             success: false,
-            alert: false 
+            alert: false,
+            disabled: true
         }
-        this.onSignup = this.onSignup.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
+        this.handleClick = this.handleClick.bind(this);        
 
 
 
     }
 
-    onSignup(e){
-        e.preventDefault();
-        firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
-            .then((data) => {
-                this.setState({
-                    success: true
-                })
-            })
-            .catch((err) => {
-                this.setState({
-                    alert: true
-                })
-                console.log(err);
+    handleClick(e){
+        
+        let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
+        let number = '+91'+this.phoneno.value;
+        firebase.auth().signInWithPhoneNumber(number,recaptcha)
+            .then(function(e){
+                this.setState({disabled: false})
+                let code = prompt('enter the otp','');
+                if(code == null) return;
+                e.confirm(code)
+                    .then((result) => {
+                        console.log(result.user,'user');
+                    
+                        window.alert("Number Verified");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             })
     }
+    
 
     handleChange(e){
         this.setState({
@@ -67,62 +69,15 @@ class LoginView extends Component{
         }
         
         return(
-            <div className="bg">
-            <div className="container">
-                <h1>Login</h1>
-                <AvForm>
-                    <AvField name="username" id="username" label="Username" type="text" innerRef={(input)=> this.lusername=input }  ></AvField>
-                    <AvField name="password" id="password" label="Password" type="password" innerRef={(input)=> this.password=input }  />
 
-                    <Button type="submit" value="submit" color="primary" size="btn-lg" block><i className="fa fa-sign-in " aria-hidden="true" style={{marginRight: '7px'}}></i>Login</Button>
-                    
-                    <p>New User .... </p>
-                    
-
-                </AvForm>
-                <Button   onClick={this.toggleModal} color="danger" outline="none"><i className="fa fa-user-plus " aria-hidden="true" style={{marginRight: '7px'}}></i>Register</Button>
-
+            <div>
+                <input type="text" id="otp" innerRef={(input) => this.phoneno=input} />
+                <button onClick={this.handleClick} id="recaptcha">Verify</button>
                 
             </div>
-            <Modal className="bg" isOpen={this.state.isModalRegister} toggle={this.toggleModal}>
-                <ModalHeader className="head" toggle={this.toggleModal}>Register</ModalHeader>
-                    <ModalBody>
-                        <AvForm onSubmit={this.onSignup}>
-                            
-                            <AvField name="fullname" id="fullname"   label="Full Name" type="text" errorMessage="Invalid" onChange = {this.handleChange} value={this.state.fullname}  validate={{
-                                required: {value: true},
-                                minLength: {value: 4},
-                                maxLength: {value: 16}
-                            }} />
-                            
-                            <br/>
-
-                            
-                            <AvField name="email" id="email" label="Email" type="email"  value={this.state.email} errorMessage="required" onChange = {this.handleChange} validate={{
-                                required: true 
-                            }} />
-                            
-                            <AvField name="password" id="password" label="Password" type="password" value={this.state.password} errorMessage="Minimum 8 characters" onChange = {this.handleChange} validate={{
-                                required: true,
-                                minLength: {value: 8}
-                            }}/>
-                           
-                           <AvField name="dob" id="dob" label="DOB" type="date" errorMessage="Required" value={this.state.dob} onChange={this.handleChange} validate={{
-                                required: true
-                            }}/>
-                            
-                            <AvField name="mobile" id="mobile" label="Mobile No" type="text"  value={this.state.phoneno} onChange={this.handleChange} validate={{
-                                number: true,
-                                required: true
-                                }} />
-                            
-                            <Button  type="submit" value="submit" color="danger" size="btn-lg" block><i className="fa fa-user-plus " aria-hidden="true" style={{marginRight: '7px'}}></i>Register</Button>
-
-                           
-                        </AvForm>
-                    </ModalBody>
-            </Modal>
-            </div>
+            
+            
+           
             
 
         
