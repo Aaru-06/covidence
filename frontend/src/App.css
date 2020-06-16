@@ -96,3 +96,34 @@
   font-size: 20px;
 }
 
+/* edited by arumugam */
+
+.moduleContainer{
+  display:flex;
+  flex-flow : row wrap;
+  justify-content : center;
+  align-items : center;
+}
+
+.moduleComponent{
+  text-align:center;
+  font-weight: bold;
+  margin:50px;
+  padding:100px;
+  flex : 1 1;
+  border-radius:50px;
+  border : double;
+  transition-property: all;
+  transition-duration: 1s;
+
+  /* testing purpose have to be rendered separately inside the module */
+  background-image : linear-gradient(lightblue,blue),url("./images/covid.jpg");
+  background-position : center;
+  background-size : cover;
+  background-repeat : no-repeat;
+  background-blend-mode: screen;
+}
+
+.moduleComponent:hover{
+  padding:125px
+}
