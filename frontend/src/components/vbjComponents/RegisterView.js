@@ -4,7 +4,6 @@ import { FormGroup, Button } from 'reactstrap';
 import firebase from '../../config/firebase';
 import * as ROUTES from '../../constants/routes';
 import {Redirect} from 'react-router-dom';
-var flag = false;
 class RegisterView extends Component{
 
 	constructor(props) {
@@ -18,7 +17,7 @@ class RegisterView extends Component{
     }	
 
     handleSubmit(event,errors,values) {
-		
+		event.preventDefault();
 		let ref = firebase.database().ref();
 		this.setState({errors,values})
 		console.log(values['address']);
@@ -37,15 +36,10 @@ class RegisterView extends Component{
 		}
 		else{
 			console.log(errors);
-			console.log(flag);
+			
 		}
     }
 
-	handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-	}
 	
 	render(){
 		if(this.state.flag){

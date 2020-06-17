@@ -9,7 +9,7 @@ import Header from './HeaderView';
 const Landing = () => {
     return(
         <div className="bg">
-            <Header />
+            <Header name="Welcome" />
             <div className="container">
                 <div className="align">
                     <h1 style={{marginBottom:'20px'}} >Click Here to Sign In</h1>
