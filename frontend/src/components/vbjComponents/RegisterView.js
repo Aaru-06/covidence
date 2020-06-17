@@ -1,20 +1,56 @@
 import React, { Component } from 'react';
 import { AvForm, AvField, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
 import { FormGroup, Button } from 'reactstrap';
-
+import firebase from '../../config/firebase';
+import * as ROUTES from '../../constants/routes';
+import {Redirect} from 'react-router-dom';
+var flag = false;
 class RegisterView extends Component{
 
 	constructor(props) {
         super(props);
-        
-        this.handleSubmit = this.handleSubmit.bind(this);
+		
+		this.handleSubmit = this.handleSubmit.bind(this);
+	
+		this.state = {
+			flag: false
+		};
     }	
 
-    handleSubmit() {
-
+    handleSubmit(event,errors,values) {
+		
+		let ref = firebase.database().ref();
+		this.setState({errors,values})
+		console.log(values['address']);
+		if(errors.length === 0){
+			
+			ref.child('users').push({
+				address: values['address'],
+				dob: values['dob'],
+				gender: values['gender'],
+				idname: values['idname'],
+				pincode: values['pincode']
+			})
+			this.setState({
+				flag: true
+			})
+		}
+		else{
+			console.log(errors);
+			console.log(flag);
+		}
     }
 
+	handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+	}
+	
 	render(){
+		if(this.state.flag){
+			return <Redirect to={ROUTES.DASHBOARD} />
+		}
 		return(
 			<div>
 				<div className="row">
@@ -32,7 +68,7 @@ class RegisterView extends Component{
 								<AvField className="reginput" name="pincode" id="pincode" label="Pincode" type="text" innerRef={(input)=> this.pincode=input } errorMessage="Pincode Required ..!!" validate={{ number: true, required: true}} ></AvField>
 								<AvField className="reginput" name="dob" id="dob" label="Date of Birth" type="date" innerRef={(input)=> this.dob=input } errorMessage="Date of Birth Required ..!!" required ></AvField>
 								
-								<AvRadioGroup className="reginput" name="gender" label="Gender" required errorMessage="Pick one ..!!">
+								<AvRadioGroup className="reginput" name="gender" id="gender" label="Gender" required errorMessage="Pick one ..!!">
 						            <AvRadio className="genopt" customInput label="Male" value="male" />
 						            <AvRadio className="genopt" customInput label="Female" value="female" />						        
 						        </AvRadioGroup>						        
