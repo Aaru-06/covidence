@@ -5,7 +5,9 @@ import * as ROUTES from '../constants/routes';
 import LoginView from './vbjComponents/LoginView';
 import firebase from '../config/firebase';
 import Dashboard from './vbjComponents/DashboardComponent';
-import RegisterView from './vbjComponents/RegisterView';
+import RegisterView from './AshwinComponents/RegisterView';
+import PmFund from './AshwinComponents/PmFund';
+import Donation from './AshwinComponents/Donation';
 import VolunteerReg from './vbjComponents/VolunteerRegComponent';
 
 
@@ -18,8 +20,6 @@ class Main extends Component{
 
     render(){
 
-  
-
         return(
             <div>
                 <Switch>
@@ -28,6 +28,8 @@ class Main extends Component{
                     <Route path={ROUTES.REGISTER} component={RegisterView} />
                     <Route path = {ROUTES.DASHBOARD} component = {Dashboard} />
                     <Route path={ROUTES.VOLUNTEER_REG} component={VolunteerReg} />
+                    <Route path={ROUTES.PM_FUND} component={PmFund} />
+                    <Route path={ROUTES.DONATION} component={Donation} />
                 </Switch>
                  
             </div>

@@ -13,7 +13,7 @@ const Landing = () => {
             <div className="container">
                 <div className="align">
                     <h1 style={{marginBottom:'20px'}} >Click Here to Sign In</h1>
-                    <Link to={ROUTES.SIGN_IN}>
+                    <Link to={ROUTES.DONATION}>
                         <Button variant="contained" color="primary">SIGN IN</Button>
                     </Link>
                 </div>

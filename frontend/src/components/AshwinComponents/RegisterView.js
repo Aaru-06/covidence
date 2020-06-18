@@ -4,6 +4,7 @@ import { FormGroup, Button } from 'reactstrap';
 import firebase from '../../config/firebase';
 import * as ROUTES from '../../constants/routes';
 import {Redirect} from 'react-router-dom';
+
 class RegisterView extends Component{
 
 	constructor(props) {
@@ -54,7 +55,7 @@ class RegisterView extends Component{
 
                     <div className="col-12 col-sm-6">
 	                    <div className="reg">
-							<h3 id="regh3">REGISTER ..!!</h3>
+							<h3 id="regh3">Registration Form</h3>
 							<AvForm onSubmit={this.handleSubmit}>
 								<AvField className="reginput" name="idname" id="idname" label="Name" type="text" innerRef={(input)=> this.idname=input } errorMessage="Name Required ..!!" required ></AvField>
 								<AvField className="reginput" name="address" id="address" label="Address" type="text" innerRef={(input)=> this.address=input } errorMessage="Address Required ..!!" required ></AvField>
