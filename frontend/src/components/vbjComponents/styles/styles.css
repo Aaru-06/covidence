@@ -1,0 +1,33 @@
+
+ .video{
+    min-width: 100%;
+    height: 500px;
+  }
+
+  .hbg{
+      font-family: 'Crimson Pro',serif;
+      border: 2px solid black;
+      height: 500px;
+      text-align: center;
+      overflow: hidden;
+  }
+
+  .btnbg{
+      background-color: white;
+      border: none;
+      color: black;
+      text-align: center;
+      font-family: 'Crimson Pro',serif;
+      text-decoration: none;
+      display: inline block;
+      margin: 5px;
+      font-size: 16px;
+      
+  }
+
+   .tbg{
+    
+    font-family: "Crimson Pro", serif;
+    font-size: 18px;
+
+  } 

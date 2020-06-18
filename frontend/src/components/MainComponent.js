@@ -9,6 +9,8 @@ import RegisterView from './AshwinComponents/RegisterView';
 import PmFund from './AshwinComponents/PmFund';
 import Donation from './AshwinComponents/Donation';
 import VolunteerReg from './vbjComponents/VolunteerRegComponent';
+import CourseList from './vbjComponents/CourseList';
+import TollFree from './vbjComponents/TollFreeComponent';
 
 
 
@@ -30,8 +32,9 @@ class Main extends Component{
                     <Route path={ROUTES.VOLUNTEER_REG} component={VolunteerReg} />
                     <Route path={ROUTES.PM_FUND} component={PmFund} />
                     <Route path={ROUTES.DONATION} component={Donation} />
-                </Switch>
-                 
+                    <Route path={ROUTES.COURSES} component={CourseList} />
+                    <Route path={ROUTES.TOLL_FREE} component={TollFree}/>
+                </Switch>               
             </div>
         );
     }

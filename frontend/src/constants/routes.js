@@ -7,3 +7,5 @@ export const DASHBOARD = '/dashboard';
 export const VOLUNTEER_REG = '/volunteer-reg';
 export const PM_FUND = '/pmfund';
 export const DONATION = '/donation';
+export const COURSES = '/course';
+export const TOLL_FREE = '/tollfree';
