@@ -16,3 +16,12 @@ export const COURSES = '/course';
 
 
 export const TOLL_FREE = '/tollfree';
+
+
+
+
+
+
+
+
+export const MYLOC = '/myloc';

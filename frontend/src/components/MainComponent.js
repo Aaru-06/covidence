@@ -9,6 +9,7 @@ import RegisterView from './vbjComponents/RegisterView';
 import VolunteerReg from './vbjComponents/VolunteerRegComponent';
 import CourseList from './vbjComponents/CourseList';
 import TollFree from './vbjComponents/TollFreeComponent';
+import { MyLocComponent } from './vbjComponents/MyLocComponent';
 
 
 
@@ -38,6 +39,11 @@ class Main extends Component{
 
 
                     <Route path={ROUTES.TOLL_FREE} component={TollFree}/>
+
+
+
+
+                    <Route path={ROUTES.MYLOC} component={MyLocComponent}/>
                     </Switch>
                  
             </div>
