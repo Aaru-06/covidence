@@ -5,3 +5,7 @@ export const SIGN_IN = '/signin';
 export const PASSWORD_FORGET = '/pw-forget';
 export const DASHBOARD = '/dashboard';
 export const VOLUNTEER_REG = '/volunteer-reg';
+
+
+
+export const COURSES = '/course';

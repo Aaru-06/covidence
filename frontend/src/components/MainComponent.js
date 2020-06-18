@@ -7,6 +7,7 @@ import firebase from '../config/firebase';
 import Dashboard from './vbjComponents/DashboardComponent';
 import RegisterView from './vbjComponents/RegisterView';
 import VolunteerReg from './vbjComponents/VolunteerRegComponent';
+import CourseList from './vbjComponents/CourseList';
 
 
 
@@ -28,7 +29,11 @@ class Main extends Component{
                     <Route path={ROUTES.REGISTER} component={RegisterView} />
                     <Route path = {ROUTES.DASHBOARD} component = {Dashboard} />
                     <Route path={ROUTES.VOLUNTEER_REG} component={VolunteerReg} />
-                </Switch>
+
+
+                    <Route path={ROUTES.COURSES} component={CourseList} />
+
+                    </Switch>
                  
             </div>
         );
