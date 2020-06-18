@@ -9,3 +9,10 @@ export const VOLUNTEER_REG = '/volunteer-reg';
 
 
 export const COURSES = '/course';
+
+
+
+
+
+
+export const TOLL_FREE = '/tollfree';
