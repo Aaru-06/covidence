@@ -17,7 +17,7 @@ import firebase from "../../config/firebase";
 import { Redirect } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import "../../App.css";
-var fire = "false";
+
 const Header = () => {
   return (
     <Jumbotron className="jumbo ">
@@ -47,10 +47,12 @@ class LoginView extends Component {
       value: "verify",
       input: false,
       success: false,
+      fire : "false",
       alert: false,
       disabled: true,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onSignInSubmit = this.onSignInSubmit.bind(this);
   }
 
   setUpRecaptcha = () => {
@@ -81,7 +83,7 @@ class LoginView extends Component {
     firebase
       .auth()
       .signInWithPhoneNumber(phoneNumber, appVerifier)
-      .then(function (confirmationResult) {
+      .then((confirmationResult)=> {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
@@ -92,7 +94,14 @@ class LoginView extends Component {
           .confirm(code)
           .then((result) => {
             console.log(result.user, "user");
-            fire = "true";
+            // fire = "true";
+            this.setState({
+                fire : "true"
+            },()=>{
+              console.log(this.state.fire);
+            });
+            
+            
           })
           .catch((err) => {
             console.log(err);
@@ -113,7 +122,7 @@ class LoginView extends Component {
   }
 
   render() {
-    if (fire === "true") {
+    if (this.state.fire === "true") {
       return <Redirect to={ROUTES.DASHBOARD} />;
     }
 
