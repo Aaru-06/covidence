@@ -39,7 +39,7 @@ class PmFund extends Component{
 
                     <div className="col-12 col-sm-6">
 	                    <div className="fund">
-		                    <h3 style={{textAlign: "center", marginBottom: '40px'}}>Make Your Contribution</h3>
+		                    <h2 style={{textAlign: "center", marginBottom: '40px'}}>Make Your Contribution</h2>
 		                    <AvForm className="margin" onSubmit={this.handleSubmit}>
 		                        <AvField className="fundinput" name="pmname" id="pmname" label="Name" type="text" innerRef={(input)=> this.pmname=input } errorMessage="Name Required ..!!" required ></AvField>
 								<AvField className="fundinput" name="amount" id="amount" label="Amount" type="text" innerRef={(input)=> this.amount=input } errorMessage="Enter Amount ..!!" validate={{ number: true, required: true}} ></AvField>
@@ -48,7 +48,7 @@ class PmFund extends Component{
 		                        <AvInput type="textarea" name="notes" id="notes" placeholder="Your Feedback ..."/>
 		                        
 								<FormGroup className="butpm">
-								    <Button style={{fontSize : '18px'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Donate</Button>
+								    <Button style={{fontSize : '17px'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Donate</Button>
 								</FormGroup>
 
 		                    </AvForm>

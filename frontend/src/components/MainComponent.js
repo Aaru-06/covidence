@@ -8,6 +8,7 @@ import Dashboard from './vbjComponents/DashboardComponent';
 import RegisterView from './AshwinComponents/RegisterView';
 import PmFund from './AshwinComponents/PmFund';
 import Donation from './AshwinComponents/Donation';
+import Stats from './AshwinComponents/Stats';
 import VolunteerReg from './vbjComponents/VolunteerRegComponent';
 import CourseList from './vbjComponents/CourseList';
 import TollFree from './vbjComponents/TollFreeComponent';
@@ -36,6 +37,7 @@ class Main extends Component{
                     <Route path={ROUTES.COURSES} component={CourseList} />
                     <Route path={ROUTES.TOLL_FREE} component={TollFree}/>
                     <Route path={ROUTES.MYLOC} component={MyLoc} />
+                    <Route path={ROUTES.STATS} component={Stats} />
                 </Switch>               
             </div>
         );

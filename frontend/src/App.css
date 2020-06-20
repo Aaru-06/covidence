@@ -145,7 +145,7 @@
 }
 
 .margin{
-  margin: 5%;
+  margin: 3%;
 }
 
 .butmar{
@@ -173,6 +173,7 @@
 
 .fundinput{
   margin-top: 10px;
+  font-size: 20px;
 }
 
 .butpm{
@@ -183,6 +184,8 @@
 #notes{
   margin-top: 20px;
   height: 100px;
+  padding: 10px;
+  font-size: 15px;
 }
 
 .donation{
@@ -193,6 +196,9 @@
   width: 15px;
   height: 15px;
   border-radius: 10%;
+  position: relative;
+  top: 2px;
+  margin-right: 3px;
 }
 
 .label{
@@ -200,6 +206,7 @@
   margin-right: 100px;
   font-size: 18px;
   padding-bottom: 20px;
+  font-size: 17px;
 }
 
 .butdon{
@@ -212,3 +219,66 @@
   font-size: 18px;
 }
 
+#sname{
+  width: 240px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
+}
+
+select:focus{
+  size: "5";
+}
+
+.cards{
+  width: 320px;
+  margin-left: 62px;
+  margin-right: -10px; 
+  padding: 20px;
+  margin-bottom: 40px;
+  border-width: 5px;
+  border-color: #e3e3e3;
+  background-color: #e3e3e3;
+  box-shadow: 0px 10px 15px #b3b3b3;
+}
+
+.title{
+  padding-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.textl{
+  margin-left: 11px;
+  font-size: 17px;
+  font-weight: bold;
+  word-spacing: 5px;
+  font-family: sans-serif;
+}
+
+.textr{
+  position: absolute;
+  margin-left: 185px;
+  font-size: 17px;
+  font-weight: bold;
+  word-spacing: 5px;
+  font-family: sans-serif;
+}
+
+#hrcard{
+  margin-top: 1px;
+  width: 320px;
+  margin-left: -25px;
+  background: #e3e3e3;
+  height: 2.2px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.statpage {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}

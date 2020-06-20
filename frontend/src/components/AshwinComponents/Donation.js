@@ -72,7 +72,7 @@ class Donation extends Component{
             	<Header name="Donations" />
             	<HelpCarousel />
                     <div className="container">
-	                    <h3 style={{textAlign: "center", marginBottom: '40px'}}>Donation Forum</h3>	                    
+	                    <h2 style={{textAlign: "center", marginBottom: '40px'}}>Donation Forum</h2>	                    
 	                    <AvForm className="margin" onSubmit={this.handleSubmit}>
 	                    	<div className="row">
 	                        <AvGroup check>
@@ -95,9 +95,9 @@ class Donation extends Component{
 	                        <AvInput type="textarea" name="otherdonate" id="notes" value={this.state.text} onChange={this.handletext} placeholder="Your Donation ..." disabled={!this.state.others} />
 	                        
 	                        <FormGroup className="butdon">
-							    <Button type="submit" style={{fontSize : '18px'}} color="danger" outline="none" ><i class='far fa-handshake' style={{marginRight: '7px'}}></i>Donate</Button>	
+							    <Button type="submit" style={{fontSize : '17px'}} color="danger" outline="none" ><i class='far fa-handshake' style={{marginRight: '7px'}}></i>Donate</Button>	
 							    <Link to={ROUTES.PM_FUND}>
-    							<Button style={{fontSize : '18px', float: 'right'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Covid Fund</Button>					    					    
+    							<Button style={{fontSize : '17px', float: 'right'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Covid Fund</Button>					    					    
 								</Link>
 							</FormGroup>
 	                    </AvForm>

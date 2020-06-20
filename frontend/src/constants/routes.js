@@ -10,3 +10,4 @@ export const DONATION = '/donation';
 export const COURSES = '/course';
 export const TOLL_FREE = '/tollfree';
 export const MYLOC = '/myloc';
+export const STATS = '/stats';
