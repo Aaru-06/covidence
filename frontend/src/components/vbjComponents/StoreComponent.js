@@ -59,13 +59,13 @@ const Store = () => {
                   Location
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Locate your Store
+                  Find Nearby Stores
                 </Typography>
               </CardContent>
             </CardActionArea>
             <CardActions>
               <Button size="large" block color="primary">
-                Click to Locate
+                Click to Find
               </Button>
             </CardActions>
           </Card>

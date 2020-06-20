@@ -47,7 +47,7 @@ class LoginView extends Component {
       value: "verify",
       input: false,
       success: false,
-      fire : "false",
+      fire: "false",
       alert: false,
       disabled: true,
     };
@@ -83,7 +83,7 @@ class LoginView extends Component {
     firebase
       .auth()
       .signInWithPhoneNumber(phoneNumber, appVerifier)
-      .then((confirmationResult)=> {
+      .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
@@ -95,13 +95,14 @@ class LoginView extends Component {
           .then((result) => {
             console.log(result.user, "user");
             // fire = "true";
-            this.setState({
-                fire : "true"
-            },()=>{
-              console.log(this.state.fire);
-            });
-            
-            
+            this.setState(
+              {
+                fire: "true",
+              },
+              () => {
+                console.log(this.state.fire);
+              }
+            );
           })
           .catch((err) => {
             console.log(err);
@@ -123,7 +124,7 @@ class LoginView extends Component {
 
   render() {
     if (this.state.fire === "true") {
-      return <Redirect to={ROUTES.DASHBOARD} />;
+      return <Redirect to={ROUTES.REGISTER} />;
     }
 
     return (
