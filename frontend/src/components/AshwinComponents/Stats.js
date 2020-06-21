@@ -3,34 +3,10 @@ import Header from "../vbjComponents/HeaderView";
 import { Bar } from "react-chartjs-2";
 import { Card, CardText } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
-var confirmed = 0;
-var active = 0;
-var recovered = 0;
-var deaths = 0;
 
 const RenderStats = (props) => {
   if (props.data !== undefined && props.data !== null) {
-    return Object.keys(props.data.districtData).map((dist) => {
-      confirmed += props.data.districtData[dist].confirmed;
-      active += props.data.districtData[dist].active;
-      recovered += props.data.districtData[dist].recovered;
-      deaths += props.data.districtData[dist].deceased;
-
-      var chartData = {
-        labels: ["Confirmed", "Active", "Recovered", "Deaths"],
-        datasets: [
-          {
-            label: "No of Cases",
-            data: [confirmed, active, recovered, deaths],
-            backgroundColor: [
-              "rgba(155,0,0,0.6)",
-              "rgba(0,0,255,0.6)",
-              "rgba(0,255,0,0.6)",
-              "rgba(255,0,0,0.6)",
-            ],
-          },
-        ],
-      };
+    return Object.keys(props.data.districtData).map((dist) => {      
       return (
         <>
           <Card className="cards">
@@ -58,12 +34,17 @@ const RenderStats = (props) => {
         </>
       );
     });
-  } else {
+  }
+  else {
     return <div></div>;
   }
 };
 
 const RenderChart = (props) => {
+  let confirmed = 0;
+  let active = 0;
+  let recovered = 0;
+  let deaths = 0;
   if (props.data !== undefined && props.data !== null) {
     Object.keys(props.data.districtData).map((dist) => {
       confirmed += props.data.districtData[dist].confirmed;
@@ -78,23 +59,29 @@ const RenderChart = (props) => {
           label: "No of Cases",
           data: [confirmed, active, recovered, deaths],
           backgroundColor: [
-            "rgba(155,0,0,0.6)",
-            "rgba(0,0,255,0.6)",
-            "rgba(0,255,0,0.6)",
-            "rgba(0,0,0,0.6)",
+            "orange",
+            "blue",
+            "#00ba07",
+            "red",
           ],
           borderColor: [
-            "rgba(0,0,0,0.6)",
-            "rgba(0,0,0,0.6)",
-            "rgba(0,0,0,0.6)",
-            "rgba(0,0,0,0.6)",
+            "orange",
+            "blue",
+            "#00ba07",
+            "red",
           ],
         },
       ],
     };
+
+    console.log(confirmed);
+    console.log(active);
+    console.log(recovered);
+    console.log(deaths);
+
     return (
       <div>
-        <Bar data={chartData} width={100} height={50} options={{}} />
+        <Bar data={chartData} width={110} height={50} options={{scales: { xAxes: [{ barPercentage: 0.5 }] }}} />
       </div>
     );
   } else {
@@ -102,10 +89,7 @@ const RenderChart = (props) => {
   }
 };
 
-console.log(confirmed);
-console.log(active);
-console.log(confirmed);
-console.log(confirmed);
+
 
 class Stats extends Component {
   constructor(props) {
@@ -139,14 +123,13 @@ class Stats extends Component {
     return (
       <div className="statpage">
         <Header name="Statistics" />
-        <AvForm className="margin">
+        <AvForm>
           <AvField
             type="select"
             value={this.state.values}
             onChange={this.handleChange}
             name="sname"
-            id="sname"
-          >
+            id="sname">
             <option value="" disabled selected>
               ...
             </option>
@@ -194,6 +177,8 @@ class Stats extends Component {
           </div>
           <div className="col-md-2"></div>
         </div>
+        <br/>
+        <br/>
         <div className="row">
           <RenderStats data={this.state.data[this.state.values]} />
         </div>

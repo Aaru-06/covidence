@@ -65,22 +65,41 @@
 }
  */
 
-.topp {
-  margin-top: 150px;
+.topp{
+  text-align: center;
+  margin-left: 50px;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.storediv{
+  height: 200px;
+}
+
+#gender{
+  margin-left: -13px;
 }
 
 .reg {
-  margin: 25px;
+  width: 550px;
   margin-top: 40px;
-  font-size: 23px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .reginput {
-  margin-top: 7px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 #regh3 {
   margin-bottom: 30px;
+  text-align: center;
+}
+
+#regh2 {
+  margin-top: 70px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
@@ -92,7 +111,7 @@
 .genopt {
   margin-top: 10px;
   margin-left: 100px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* edited by arumugam */
@@ -104,14 +123,21 @@
   align-items: center;
 }
 
+.link{
+  color: black;
+}
+
 .moduleComponent {
   text-align: center;
   font-weight: bold;
+  width: 250px;
+  height: 100px;
+  font-size: 18px;
+  border: double;
   margin: 50px;
-  padding: 100px;
+  padding: 90px;
   flex: 1 1;
   border-radius: 50px;
-  border: double;
   transition-property: all;
   transition-duration: 1s;
 
@@ -145,7 +171,8 @@
 }
 
 .margin {
-  margin: 3%;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .butmar {
@@ -171,8 +198,9 @@
 }
 
 .fundinput {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 15px;
+  font-size: 17px;
+  margin-bottom: 15px;
 }
 
 .butpm {
@@ -187,17 +215,28 @@
   font-size: 15px;
 }
 
+.cbox{
+  width: 14px;
+  height: 14px;
+}
+
+Label{
+  font-size: 20px;
+  margin-right: 20px;
+}
+
 .donation {
   align-items: center;
 }
 
-.cbox {
-  width: 15px;
-  height: 15px;
-  border-radius: 10%;
-  position: relative;
-  top: 2px;
-  margin-right: 3px;
+#doncheck{
+  width: 1040px;
+  margin-left: -13px;
+  font-size: 20px;
+}
+
+.donc{
+  width: 1040px;
 }
 
 .label {
@@ -212,16 +251,11 @@
   margin-top: 40px;
 }
 
-#donmon {
-  margin-top: 10px;
-  margin-right: 20px;
-  font-size: 18px;
-}
-
 #sname {
   width: 240px;
   border-width: 3px;
   box-shadow: 0px 7px 5px #d4d4d4;
+  margin-left: 50px;
 }
 
 select:focus {

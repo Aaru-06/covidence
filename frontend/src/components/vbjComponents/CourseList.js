@@ -45,7 +45,7 @@ var videos = [
     },
     {
         id: 6,
-        name: 'Important Books for JEE Mains and ',
+        name: 'Important Books for JEE Mains ',
         service: 'youtube',
         video: 'https://www.youtube.com/watch?v=JSHewjtRzYU'
     },
@@ -135,7 +135,7 @@ class CourseList extends Component{
                     <div className="col-12 col-md-3 hbg">
                         
                             
-                         <h3 style={{textAlign:"center"}} >Playlist</h3>
+                        <h3 style={{textAlign:"center", marginTop: '15px'}} >PLAYLIST</h3>
                         <PerfectScrollbar>
                             {para}
                         </PerfectScrollbar>
