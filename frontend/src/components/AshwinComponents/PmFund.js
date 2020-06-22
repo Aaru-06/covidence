@@ -44,7 +44,7 @@ class PmFund extends Component{
 		                        <AvField className="fundinput" name="pmname" id="pmname" label="Name" type="text" innerRef={(input)=> this.pmname=input } errorMessage="Name Required ..!!" required ></AvField>
 								<AvField className="fundinput" name="amount" id="amount" label="Amount" type="text" innerRef={(input)=> this.amount=input } errorMessage="Enter Amount ..!!" validate={{ number: true, required: true}} ></AvField>
 		                        
-		                        <p style={{marginTop: '20px'}} >Feedback</p>
+		                        <p style={{marginTop: '20px', fontSize: '18px'}} >Feedback</p>
 		                        <AvInput type="textarea" name="notes" id="notes" placeholder="Your Feedback ..."/>
 		                        
 								<FormGroup className="butpm">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AvForm, AvField, AvInput, AvGroup } from 'availity-reactstrap-validation';
+import { AvForm, AvField, AvInput, AvCheckbox,AvCheckboxGroup } from 'availity-reactstrap-validation';
 import { FormGroup, Button, Label } from 'reactstrap';
 import firebase from '../../config/firebase';
 import Header from '../vbjComponents/HeaderView';
@@ -71,33 +71,23 @@ class Donation extends Component{
             <div id="scroll">
             	<Header name="Donations" />
             	<HelpCarousel />
-                    <div className="container">
+                    <div className="container donc">
 	                    <h2 style={{textAlign: "center", marginBottom: '40px'}}>Donation Forum</h2>	                    
 	                    <AvForm className="margin" onSubmit={this.handleSubmit}>
-	                    	<div className="row">
-	                        <AvGroup check>
-					            <Label className='label' check>
-					              <AvInput className="cbox" type="checkbox" name="food" onChange={this.handleCheck} checked={this.state.food}/> Food
-					            </Label>
-					          </AvGroup>
-					          <AvGroup check>
-					            <Label className='label' check>
-					              <AvInput className="cbox" type="checkbox" name="cloth" onChange={this.handleCheck} checked={this.state.cloth}/> Clothing
-					            </Label>
-					        </AvGroup>
-					        <AvGroup check>
-					            <Label className='label' check>
-					              <AvInput className="cbox" type="checkbox" name="others" onChange={this.handleCheck} checked={this.state.others}/> Extras
-					            </Label>
-					        </AvGroup>
+	                    	<div>
+  			              	<AvCheckboxGroup inline required id="doncheck" errorMessage="Pick one ..!!" name="doncheck" validate={{min: {value: 1}}}>
+	                        <AvCheckbox className="cbox" type="checkbox" label="Food" name="food" onChange={this.handleCheck} checked={this.state.food}/>
+	                        <AvCheckbox className="cbox" type="checkbox" label="Clothing" name="cloth" onChange={this.handleCheck} checked={this.state.cloth} />
+	                        <AvCheckbox className="cbox" type="checkbox" label="Extras" name="others" onChange={this.handleCheck} checked={this.state.others} />
+	                        </AvCheckboxGroup>			            
        	                    </div>
 
 	                        <AvInput type="textarea" name="otherdonate" id="notes" value={this.state.text} onChange={this.handletext} placeholder="Your Donation ..." disabled={!this.state.others} />
 	                        
 	                        <FormGroup className="butdon">
-							    <Button type="submit" style={{fontSize : '17px'}} color="danger" outline="none" ><i class='far fa-handshake' style={{marginRight: '7px'}}></i>Donate</Button>	
+							    <Button type="submit" style={{fontSize : '17px', marginBottom: '40px'}} color="danger" outline="none" ><i class='far fa-handshake' style={{marginRight: '7px'}}></i>Donate</Button>	
 							    <Link to={ROUTES.PM_FUND}>
-    							<Button style={{fontSize : '17px', float: 'right'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Covid Fund</Button>					    					    
+    							<Button style={{fontSize : '17px', float: 'right', marginBottom: '40px'}} color="danger" outline="none" ><i class='fas fa-money-check-alt' style={{marginRight: '7px'}} ></i>Covid Fund</Button>					    					    
 								</Link>
 							</FormGroup>
 	                    </AvForm>

@@ -1,3 +1,3 @@
 {
-    "dashboardModules" : ["Map-Services","PM-Fund","Stats","Courses","Toll-Free","Stores","My-Orders","Volunteer","Donation","Infected-Loc","My-Loc","E-Pass","Log-Out"]
+    "dashboardModules" : ["mapservices","pmfund","stats","courses","tollfree","store","myorders","volunteer-reg","donation","infectedloc","myloc","epass","logout"]
 }

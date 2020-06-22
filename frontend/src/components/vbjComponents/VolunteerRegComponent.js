@@ -48,18 +48,18 @@ class VolunteerReg extends Component{
                 <Header name="Volunteer-Registration" />
                 <CarouselComponent />
                 <div className="container">
-                    <h3 style={{textAlign: "center"}}>Registration Form</h3>
+                    <h2 style={{textAlign: "center"}}>Registration Form</h2>
                     <AvForm className="margin" onSubmit={this.handleSubmit}>
-                        <AvField type="select" name="select" label="Work" helpMessage="Select a work depending upon your skills"  required>
-                            <option>Select..</option>
+                        <AvField style={{marginBottom : '20px'}} type="select" name="select" label="Work" helpMessage="Select a Work depending upon your Skills" errorMessage="Pick one ..!!"  required>
+                            <option value="" disabled selected>...</option>
                             <option>Traffic</option>
                             <option>Distribution</option>
                             <option>Others</option>
                         </AvField>
-                        <AvInput type="textarea" name="skills" id="skills" placeholder="Your Skills" required/>
+                        <AvInput  type="textarea" name="skills" id="skills" style={{height: '80px', marginTop: '20px'}} placeholder="Your Skills" required/>
                         
 						<FormGroup className="butmar">
-						    <Button style={{fontSize : '18px'}} color="danger" outline="none" ><i class="fa fa-user-circle-o" aria-hidden="true" style={{marginRight: '7px'}} ></i>Submit</Button>
+						    <Button style={{fontSize : '17px'}} color="danger" outline="none" ><i class="fa fa-user-circle-o" aria-hidden="true" style={{marginRight: '7px'}} ></i>Submit</Button>
 						</FormGroup>
 
                     </AvForm>

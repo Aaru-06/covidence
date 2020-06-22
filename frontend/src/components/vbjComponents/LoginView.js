@@ -88,7 +88,7 @@ class LoginView extends Component {
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
         console.log("OTP Send");
-        let code = prompt("enter the otp", "");
+        let code = prompt("Enter the OTP", "");
         if (code == null) return;
         confirmationResult
           .confirm(code)
@@ -145,13 +145,14 @@ class LoginView extends Component {
           <div className="col-12 col-sm-4">
             <Header />
             <div>
-              <h1 className="align topp">Login</h1>
-              <Input type="text" value="+91" className="align topp"></Input>
+              <h2 className="topp">Login</h2>
+              <Input type="text" value="+91" className="align"></Input>
               <Input
                 className="align"
                 type="text"
                 id="mobile"
                 disabled={this.state.input}
+                maxLength="10"
                 placeholder="Enter your phone number"
                 innerRef={(input) => (this.mobile = input)}
               ></Input>

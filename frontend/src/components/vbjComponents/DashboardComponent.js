@@ -12,7 +12,6 @@ const Dashboard = props  => {
             <Header name="Dashboard" />
             <SideNavBar/>
             <div className="moduleContainer">
-                {/* <h1>{props.user}</h1> */}
                 {
                     modules.dashboardModules.map((obj,index)=> <DashboardModuleComponent key={index} name={obj} img={img}/>)
                 }

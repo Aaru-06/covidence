@@ -11,6 +11,7 @@
     "availity-reactstrap-validation": "^2.6.1",
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
+    "chartjs": "^0.3.24",
     "firebase": "^7.15.1",
     "google-maps-react": "^2.0.6",
     "query-string": "^6.13.1",

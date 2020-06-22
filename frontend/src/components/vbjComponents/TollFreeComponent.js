@@ -25,7 +25,7 @@ const TollFree = () => {
         <>
             <Header name="Toll Free" />
             <div className="container tbg">
-                <h3 style={{textAlign: "center"}}>Emergency and Landline Numbers</h3>
+                <h2 style={{textAlign: "center", marginBottom: '30px'}}>Emergency and Landline Numbers</h2>
 
                 <div className="row">
                     <div className="col-12 ">
