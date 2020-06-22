@@ -10,7 +10,7 @@ const Dashboard = props  => {
     return(
         <div>
             <Header name="Dashboard" />
-            <SideNavBar/>
+            <SideNavBar history={props.history}/>
             <div className="moduleContainer">
                 {
                     modules.dashboardModules.map((obj,index)=> <DashboardModuleComponent key={index} name={obj} img={img} history={props.history}/>)

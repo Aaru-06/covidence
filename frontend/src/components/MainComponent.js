@@ -15,6 +15,7 @@ import TollFree from "./vbjComponents/TollFreeComponent";
 import MyLoc from "./vbjComponents/MyLocComponent";
 import Store from "./vbjComponents/StoreComponent";
 import RegisterStore from "./vbjComponents/RegisterStoreComponent";
+import HospitalFinder from "./arumugamComponents/HospitalFinder";
 
 class Main extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class Main extends Component {
           <Route path={ROUTES.EPASS} component={() => { 
            window.location.href = 'http://serviceonline.gov.in/epass/'; 
            return null; }}/>
+          <Route path={ROUTES.MAP_SERVICES} component={HospitalFinder}/>
         </Switch>
       </div>
     );

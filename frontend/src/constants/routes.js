@@ -14,3 +14,4 @@ export const STATS = "/stats";
 export const STORE = "/store";
 export const REGSTORE = "/{STORE}/regstore";
 export const EPASS = "/epass";
+export const MAP_SERVICES = "/mapservices"
