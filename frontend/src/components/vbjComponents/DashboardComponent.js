@@ -10,7 +10,6 @@ const Dashboard = props  => {
         <div>
             <Header name="Dashboard" />
             <div className="moduleContainer">
-                {/* <h1>{props.user}</h1> */}
                 {
                     modules.dashboardModules.map((obj,index)=> <DashboardModuleComponent key={index} name={obj} img={img}/>)
                 }

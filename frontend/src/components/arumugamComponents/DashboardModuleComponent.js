@@ -1,9 +1,10 @@
 import React,{Component} from "react"
+import { Link } from 'react-router-dom';
 
 class DashboardModuleComponent extends Component{
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props);
         this.clickHandler = this.clickHandler.bind(this);
     }
 
@@ -11,11 +12,12 @@ class DashboardModuleComponent extends Component{
         window.alert(this.props.name+" is clicked .. \\testing purpose")
     }
     render(){
-        // console.log("modules rendered")
         return(
+        	<Link className="link" to={{pathname: `/${this.props.name}`}} >
             <div className="moduleComponent" name={this.props.name} onClick={this.clickHandler}>
                 {this.props.name}
             </div>
+            </Link>
         )
     }
 }

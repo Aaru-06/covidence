@@ -57,28 +57,28 @@ class RegisterStore extends Component {
               className="myImage"
               src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
               width="600px"
-              height="800px"
+              height="753px"
               alt="img"
             ></img>
           </div>
 
           <div className="col-12 col-sm-6">
             <div className="reg">
-              <h3 id="regh3">Registration Form</h3>
+              <h2 id="regh2">Registration Form</h2>
               <AvForm onSubmit={this.handleSubmit}>
                 <AvField
                   className="reginput"
                   name="idname"
                   id="idname"
                   label="Name"
-                  placeholder="Enter store name"
+                  placeholder="Enter Store name"
                   type="text"
                   innerRef={(input) => (this.idname = input)}
                   errorMessage="Name Required ..!!"
                   required
                 ></AvField>
 
-                <AvField type="select" name="select" label="Type" required>
+                <AvField type="select" className="reginput" name="select" label="Type" required errorMessage="Pick one ..!!">
                   <option>Select</option>
                   <option>Grocery</option>
                   <option>Departmental</option>
@@ -90,7 +90,7 @@ class RegisterStore extends Component {
                   name="address"
                   id="address"
                   label="Address"
-                  placeholder="Enter store address"
+                  placeholder="Enter Store address"
                   type="text"
                   innerRef={(input) => (this.address = input)}
                   errorMessage="Address Required ..!!"
@@ -102,7 +102,7 @@ class RegisterStore extends Component {
                   name="pincode"
                   id="pincode"
                   label="Pincode"
-                  placeholder="Enter your pincode"
+                  placeholder="Enter Pincode"
                   type="text"
                   innerRef={(input) => (this.pincode = input)}
                   errorMessage="Pincode Required ..!!"
@@ -111,7 +111,7 @@ class RegisterStore extends Component {
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "18px" }}
+                    style={{ fontSize: "17px", marginTop: '15px' }}
                     color="danger"
                     outline="none"
                   >
