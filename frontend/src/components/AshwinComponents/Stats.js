@@ -3,10 +3,11 @@ import Header from "../vbjComponents/HeaderView";
 import { Bar } from "react-chartjs-2";
 import { Card, CardText } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 const RenderStats = (props) => {
   if (props.data !== undefined && props.data !== null) {
-    return Object.keys(props.data.districtData).map((dist) => {      
+    return Object.keys(props.data.districtData).map((dist) => {
       return (
         <>
           <Card className="cards">
@@ -34,8 +35,7 @@ const RenderStats = (props) => {
         </>
       );
     });
-  }
-  else {
+  } else {
     return <div></div>;
   }
 };
@@ -58,18 +58,8 @@ const RenderChart = (props) => {
         {
           label: "No of Cases",
           data: [confirmed, active, recovered, deaths],
-          backgroundColor: [
-            "orange",
-            "blue",
-            "#00ba07",
-            "red",
-          ],
-          borderColor: [
-            "orange",
-            "blue",
-            "#00ba07",
-            "red",
-          ],
+          backgroundColor: ["orange", "blue", "#00ba07", "red"],
+          borderColor: ["orange", "blue", "#00ba07", "red"],
         },
       ],
     };
@@ -81,15 +71,18 @@ const RenderChart = (props) => {
 
     return (
       <div>
-        <Bar data={chartData} width={110} height={50} options={{scales: { xAxes: [{ barPercentage: 0.5 }] }}} />
+        <Bar
+          data={chartData}
+          width={110}
+          height={50}
+          options={{ scales: { xAxes: [{ barPercentage: 0.5 }] } }}
+        />
       </div>
     );
   } else {
     return <div></div>;
   }
 };
-
-
 
 class Stats extends Component {
   constructor(props) {
@@ -123,13 +116,15 @@ class Stats extends Component {
     return (
       <div className="statpage">
         <Header name="Statistics" />
+        <SideNavBar />
         <AvForm>
           <AvField
             type="select"
             value={this.state.values}
             onChange={this.handleChange}
             name="sname"
-            id="sname">
+            id="sname"
+          >
             <option value="" disabled selected>
               ...
             </option>
@@ -177,8 +172,8 @@ class Stats extends Component {
           </div>
           <div className="col-md-2"></div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div className="row">
           <RenderStats data={this.state.data[this.state.values]} />
         </div>

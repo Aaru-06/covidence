@@ -10,11 +10,13 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import * as ROUTES from "../../constants/routes";
 import { Link, Redirect } from "react-router-dom";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 const Store = () => {
   return (
     <div>
       <Header name="Stores" />
+      <SideNavBar />
       <div className="row">
         <div className="col-12 col-md-4">
           <Card className="root">
@@ -64,9 +66,11 @@ const Store = () => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="large" block color="primary">
-                Click to Find
-              </Button>
+              <Link to={ROUTES.NEARBY_STORE}>
+                <Button size="large" block color="primary">
+                  Click to Find
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         </div>

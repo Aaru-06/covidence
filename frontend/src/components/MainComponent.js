@@ -16,6 +16,7 @@ import MyLoc from "./vbjComponents/MyLocComponent";
 import Store from "./vbjComponents/StoreComponent";
 import RegisterStore from "./vbjComponents/RegisterStoreComponent";
 import HospitalFinder from "./arumugamComponents/HospitalFinder";
+import NearbyStore from "./vbjComponents/NearbyStoreComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -43,6 +44,8 @@ class Main extends Component {
            window.location.href = 'http://serviceonline.gov.in/epass/'; 
            return null; }}/>
           <Route path={ROUTES.MAP_SERVICES} component={HospitalFinder}/>
+          <Route path={ROUTES.REGSTORE} component={RegisterStore} />
+          <Route path={ROUTES.NEARBY_STORE} component={NearbyStore} />
         </Switch>
       </div>
     );

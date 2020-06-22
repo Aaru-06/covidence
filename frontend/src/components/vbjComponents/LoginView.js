@@ -17,6 +17,7 @@ import firebase from "../../config/firebase";
 import { Redirect } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import "../../App.css";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 const Header = () => {
   return (
@@ -144,6 +145,7 @@ class LoginView extends Component {
 
           <div className="col-12 col-sm-4">
             <Header />
+            <SideNavBar />
             <div>
               <h2 className="topp">Login</h2>
               <Input type="text" value="+91" className="align"></Input>
