@@ -60,11 +60,10 @@ class NearbyStore extends Component {
     console.log(pin);
 
     return (
-      <div>
+      <div className="statpage">
         <Header name="Nearby stores" />
-        <SideNavBar />
-        <div className="container">
-          <AvForm onSubmit={this.handleSubmit}>
+          <AvForm style={{marginLeft: '87px'}} onSubmit={this.handleSubmit}>
+            <div className="row">
             <AvField
               className="reginput"
               name="pincode"
@@ -76,24 +75,23 @@ class NearbyStore extends Component {
               validate={{ number: true, required: true }}
             ></AvField>
 
-            <FormGroup id="regbut">
               <Button
-                style={{ fontSize: "18px" }}
+                id="stbut"                
                 color="danger"
                 outline="none"
               >
                 <i
-                  class="fa fa-user-circle-o"
+                  class="fa fa-search"
                   aria-hidden="true"
                   style={{ marginRight: "7px" }}
                 ></i>
-                Register
+                Search
               </Button>
-            </FormGroup>
+            </div>
           </AvForm>
-        </div>
-
+        <div className="row">
         <NearbyView pin={pin} />
+        </div>        
       </div>
     );
   }

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const NearbyView = (props) => {
   return props.pin.map((pincode) => {
     return (
-      <div className="container">
+      <div className="row">
         <Card className="root">
           <CardActionArea>
             <CardMedia
