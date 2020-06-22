@@ -1,5 +1,4 @@
 import React,{Component} from "react"
-import { Link } from 'react-router-dom';
 
 class DashboardModuleComponent extends Component{
 
@@ -9,15 +8,14 @@ class DashboardModuleComponent extends Component{
     }
 
     clickHandler(event){
-        window.alert(this.props.name+" is clicked .. \\testing purpose")
+        let name = event.target.id;
+        this.props.history.push(`/${name}`);
     }
     render(){
         return(
-        	<Link className="link" to={{pathname: `/${this.props.name}`}} >
-            <div className="moduleComponent" name={this.props.name} onClick={this.clickHandler}>
+            <div className="moduleComponent" id={this.props.name} onClick={this.clickHandler}>
                 {this.props.name}
             </div>
-            </Link>
         )
     }
 }

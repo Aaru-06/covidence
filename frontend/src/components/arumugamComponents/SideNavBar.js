@@ -15,7 +15,7 @@ class SideNavBar extends Component{
         return(
             <SideNav className="snb">
                 <Nav>
-                    {this.modules.map(obj => <NavItem className="navitem"><NavText className="navtext">{obj}</NavText></NavItem>)}
+                    {this.modules.map((obj,index)=> <NavItem className="navitem" key={index}><NavText className="navtext" key={index}>{obj}</NavText></NavItem>)}
                 </Nav>
             </SideNav>
         )

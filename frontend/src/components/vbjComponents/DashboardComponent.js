@@ -13,7 +13,7 @@ const Dashboard = props  => {
             <SideNavBar/>
             <div className="moduleContainer">
                 {
-                    modules.dashboardModules.map((obj,index)=> <DashboardModuleComponent key={index} name={obj} img={img}/>)
+                    modules.dashboardModules.map((obj,index)=> <DashboardModuleComponent key={index} name={obj} img={img} history={props.history}/>)
                 }
             </div>
         </div>
