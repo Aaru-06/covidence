@@ -39,6 +39,8 @@
 .jumbotron {
   background-color: black;
   color: beige;
+  position:sticky;
+  top:0;
 }
 
 @media screen and (min-width: 600px) {
