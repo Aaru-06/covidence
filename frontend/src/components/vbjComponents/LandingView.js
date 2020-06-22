@@ -4,11 +4,13 @@ import { Link, Route } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import "../../App.css";
 import Header from "./HeaderView";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 const Landing = () => {
   return (
     <div className="bg">
       <Header name="Welcome" />
+      <SideNavBar />
       <div className="container">
         <div className="align">
           <h1 style={{ marginBottom: "20px" }}>Click Here to Sign In</h1>

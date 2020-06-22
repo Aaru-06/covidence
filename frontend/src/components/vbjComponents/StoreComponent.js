@@ -10,11 +10,13 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import * as ROUTES from "../../constants/routes";
 import { Link, Redirect } from "react-router-dom";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 const Store = () => {
   return (
     <div>
       <Header name="Stores" />
+      <SideNavBar />
       <div className="row">
         <div className="col-12 col-md-4">
           <Card className="root">

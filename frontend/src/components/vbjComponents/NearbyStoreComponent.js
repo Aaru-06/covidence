@@ -10,6 +10,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import NearbyView from "./NearbyViewComponent";
+import SideNavBar from "../arumugamComponents/SideNavBar";
 
 class NearbyStore extends Component {
   constructor(props) {
@@ -55,46 +57,13 @@ class NearbyStore extends Component {
       .map((key) => {
         return this.state.store[key];
       });
-    if (pin != null) {
-      const locate = (
-        <div className="row">
-          <div className="col-12 col-md-4">
-            <Card className="root">
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Store"
-                  height="225"
-                  image="https://c0.wallpaperflare.com/preview/539/217/128/ecommerce-online-store-online-shop-store.jpg"
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Register
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    Register your Store
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="large" color="primary">
-                  Click to Register
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
-        </div>
-      );
-    }
+    console.log(pin);
+
     return (
       <div>
+        <Header name="Nearby stores" />
+        <SideNavBar />
         <div className="container">
-          <Header name="Nearby stores" />
           <AvForm onSubmit={this.handleSubmit}>
             <AvField
               className="reginput"
@@ -123,7 +92,8 @@ class NearbyStore extends Component {
             </FormGroup>
           </AvForm>
         </div>
-        {locate}
+
+        <NearbyView pin={pin} />
       </div>
     );
   }

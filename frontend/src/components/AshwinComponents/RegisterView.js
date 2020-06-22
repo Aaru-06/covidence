@@ -28,11 +28,11 @@ class RegisterView extends Component {
     console.log(values["address"]);
     if (errors.length === 0) {
       ref.child("users").push({
-        Address: values["address"],
-        Dob: values["dob"],
-        Gender: values["gender"],
-        Name: values["idname"],
-        Pincode: values["pincode"],
+        address: values["address"],
+        dob: values["dob"],
+        gender: values["gender"],
+        idname: values["idname"],
+        pincode: values["pincode"],
       });
       this.setState({
         flag: true,
@@ -54,14 +54,14 @@ class RegisterView extends Component {
               className="myImage"
               src="https://cdn.pixabay.com/photo/2020/03/31/14/04/covid-19-4987797__340.jpg"
               width="600px"
-              height="800px"
+              height="925px"
               alt="img"
             ></img>
           </div>
 
           <div className="col-12 col-sm-6">
             <div className="reg">
-              <h3 id="regh3">Registration Form</h3>
+              <h2 id="regh2">Registration Form</h2>
               <AvForm onSubmit={this.handleSubmit}>
                 <AvField
                   className="reginput"
@@ -84,7 +84,6 @@ class RegisterView extends Component {
                   required
                 ></AvField>
 
-<<<<<<< HEAD
                 <AvField
                   className="reginput"
                   name="pincode"
@@ -130,7 +129,7 @@ class RegisterView extends Component {
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "18px" }}
+                    style={{ fontSize: "17px", marginBottom: "50px" }}
                     color="danger"
                     outline="none"
                   >
@@ -149,45 +148,6 @@ class RegisterView extends Component {
       </div>
     );
   }
-=======
-	
-	render(){
-		if(this.state.flag){
-			return <Redirect to={ROUTES.DASHBOARD} />
-		}
-		return(
-			<div>
-				<div className="row">
-                    <div className="col-12 col-sm-6">
-                        <img className="myImage" src="https://cdn.pixabay.com/photo/2020/03/31/14/04/covid-19-4987797__340.jpg" width="600px" height="925px" alt="img"></img>
-                    </div>
-
-                    <div className="col-12 col-sm-6">
-	                    <div className="reg">
-							<h2 id="regh2">Registration Form</h2>
-							<AvForm onSubmit={this.handleSubmit}>
-								<AvField className="reginput" name="idname" id="idname" label="Name" type="text" innerRef={(input)=> this.idname=input } errorMessage="Name Required ..!!" required ></AvField>
-								<AvField className="reginput" name="address" id="address" label="Address" type="text" innerRef={(input)=> this.address=input } errorMessage="Address Required ..!!" required ></AvField>
-								
-								<AvField className="reginput" name="pincode" id="pincode" label="Pincode" type="text" innerRef={(input)=> this.pincode=input } errorMessage="Pincode Required ..!!" validate={{ number: true, required: true}} ></AvField>
-								<AvField className="reginput" name="dob" id="dob" label="Date of Birth" type="date" innerRef={(input)=> this.dob=input } errorMessage="Date of Birth Required ..!!" required ></AvField>
-								
-								<AvRadioGroup className="reginput" name="gender" id="gender" label="Gender" required errorMessage="Pick one ..!!">
-						            <AvRadio className="genopt" customInput label="Male" value="male" />
-						            <AvRadio className="genopt" customInput label="Female" value="female" />						        
-						        </AvRadioGroup>						        
-
-						        <FormGroup id="regbut">
-						            <Button style={{fontSize : '17px', marginBottom: '50px'}} color="danger" outline="none" ><i class="fa fa-user-circle-o" aria-hidden="true" style={{marginRight: '7px'}} ></i>Register</Button>
-						        </FormGroup>
-						    </AvForm>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
->>>>>>> 05fabdb44161b100233c8cc0042ac03cb0d63bb2
 }
 
 export default RegisterView;
