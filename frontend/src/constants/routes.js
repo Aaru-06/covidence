@@ -13,3 +13,4 @@ export const MYLOC = "/myloc";
 export const STATS = "/stats";
 export const STORE = "/store";
 export const REGSTORE = "/{STORE}/regstore";
+export const NEARBY_STORE = "/{STORE}/nearby-store";

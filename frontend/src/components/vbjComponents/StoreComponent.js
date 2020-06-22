@@ -64,9 +64,11 @@ const Store = () => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="large" block color="primary">
-                Click to Find
-              </Button>
+              <Link to={ROUTES.NEARBY_STORE}>
+                <Button size="large" block color="primary">
+                  Click to Find
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         </div>

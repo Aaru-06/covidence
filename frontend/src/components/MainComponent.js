@@ -15,6 +15,7 @@ import TollFree from "./vbjComponents/TollFreeComponent";
 import MyLoc from "./vbjComponents/MyLocComponent";
 import Store from "./vbjComponents/StoreComponent";
 import RegisterStore from "./vbjComponents/RegisterStoreComponent";
+import NearbyStore from "./vbjComponents/NearbyStoreComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class Main extends Component {
           <Route path={ROUTES.STATS} component={Stats} />
           <Route path={ROUTES.STORE} component={Store} />
           <Route path={ROUTES.REGSTORE} component={RegisterStore} />
+          <Route path={ROUTES.NEARBY_STORE} component={NearbyStore} />
         </Switch>
       </div>
     );
