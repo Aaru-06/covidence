@@ -34,6 +34,8 @@
 .align {
   text-align: center;
   margin: 25px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
 }
 
 .jumbotron {
@@ -94,6 +96,8 @@
 .reginput {
   margin-top: 10px;
   margin-bottom: 25px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
 }
 
 #regh3 {
@@ -110,6 +114,10 @@
 #regbut {
   margin: 0 auto;
   text-align: center;
+}
+
+#shopbut{
+  margin-top: 40px; 
 }
 
 .genopt {
@@ -201,10 +209,12 @@
   margin-top: 15px;
   font-size: 17px;
   margin-bottom: 15px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
 }
 
 .butpm {
-  margin: 5%;
+  margin: 7%;
   text-align: center;
 }
 
@@ -213,11 +223,15 @@
   height: 100px;
   padding: 10px;
   font-size: 15px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
 }
 
 .cbox{
   width: 14px;
   height: 14px;
+  border-width: 3px;
+  box-shadow: 0px 7px 5px #d4d4d4;
 }
 
 Label{

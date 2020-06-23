@@ -5,6 +5,7 @@ import {
   AvRadioGroup,
   AvRadio,
 } from "availity-reactstrap-validation";
+import Header from '../vbjComponents/HeaderView';
 import { FormGroup, Button } from "reactstrap";
 import firebase from "../../config/firebase";
 import * as ROUTES from "../../constants/routes";
@@ -47,12 +48,13 @@ class RegisterView extends Component {
       return <Redirect to={ROUTES.DASHBOARD} />;
     }
     return (
-      <div>
+      <div className="statpage" >
+        <Header name="Register" />
         <div className="row">
           <div className="col-12 col-sm-6">
             <img
               className="myImage"
-              src="https://cdn.pixabay.com/photo/2020/03/31/14/04/covid-19-4987797__340.jpg"
+              src="https://cdn.kalingatv.com/wp-content/uploads/2020/04/registration.png"
               width="600px"
               height="925px"
               alt="img"
@@ -106,7 +108,6 @@ class RegisterView extends Component {
                 ></AvField>
 
                 <AvRadioGroup
-                  className="reginput"
                   name="gender"
                   id="gender"
                   label="Gender"
@@ -129,7 +130,7 @@ class RegisterView extends Component {
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "17px", marginBottom: "50px" }}
+                    style={{ fontSize: "17px", marginBottom: "50px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
                     color="danger"
                     outline="none"
                   >

@@ -16,4 +16,4 @@ export const REGSTORE = "/{STORE}/regstore";
 export const NEARBY_STORE = "/{STORE}/nearby-store";
 export const EPASS = "/epass";
 export const MAP_SERVICES = "/mapservices"
-export const SHOP = "/:shopid/shop";
+export const SHOP = "/shop";

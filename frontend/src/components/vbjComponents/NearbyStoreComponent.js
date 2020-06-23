@@ -62,7 +62,7 @@ class NearbyStore extends Component {
     return (
       <div className="statpage">
         <Header name="Nearby stores" />
-          <AvForm style={{marginLeft: '87px'}} onSubmit={this.handleSubmit}>
+          <AvForm style={{marginLeft: '87px', marginTop: '20px'}} onSubmit={this.handleSubmit}>
             <div className="row">
             <AvField
               className="reginput"

@@ -49,7 +49,7 @@ class VolunteerReg extends Component {
           <h2 style={{ textAlign: "center" }}>Registration Form</h2>
           <AvForm className="margin" onSubmit={this.handleSubmit}>
             <AvField
-              style={{ marginBottom: "20px" }}
+              style={{ marginBottom: "20px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
               type="select"
               name="select"
               label="Work"
@@ -68,14 +68,14 @@ class VolunteerReg extends Component {
               type="textarea"
               name="skills"
               id="skills"
-              style={{ height: "80px", marginTop: "20px" }}
+              style={{ height: "80px", marginTop: "20px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4'  }}
               placeholder="Your Skills"
               required
             />
 
             <FormGroup className="butmar">
               <Button
-                style={{ fontSize: "17px" }}
+                style={{ fontSize: "17px" , borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4'}}
                 color="danger"
                 outline="none"
               >

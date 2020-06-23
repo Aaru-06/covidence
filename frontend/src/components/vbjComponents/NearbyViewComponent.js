@@ -32,12 +32,12 @@ const NearbyView = (props) => {
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            <Link to={ROUTES.SHOP}>
+          <CardActions>  
+          <Link to={ROUTES.SHOP} >          
               <Button size="large" color="primary">
                 Click to Buy
               </Button>
-            </Link>
+          </Link>
           </CardActions>
         </Card>
       </div>

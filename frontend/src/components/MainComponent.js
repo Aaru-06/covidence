@@ -8,6 +8,7 @@ import Dashboard from "./vbjComponents/DashboardComponent";
 import RegisterView from "./AshwinComponents/RegisterView";
 import PmFund from "./AshwinComponents/PmFund";
 import Donation from "./AshwinComponents/Donation";
+import Shop from "./AshwinComponents/Shop";
 import Stats from "./AshwinComponents/Stats";
 import VolunteerReg from "./vbjComponents/VolunteerRegComponent";
 import CourseList from "./vbjComponents/CourseList";
@@ -46,6 +47,7 @@ class Main extends Component {
           <Route path={ROUTES.MAP_SERVICES} component={HospitalFinder}/>
           <Route path={ROUTES.REGSTORE} component={RegisterStore} />
           <Route path={ROUTES.NEARBY_STORE} component={NearbyStore} />
+          <Route path={ROUTES.SHOP} component={Shop} />
         </Switch>
       </div>
     );

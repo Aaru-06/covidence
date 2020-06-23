@@ -10,7 +10,7 @@ const Header = props => {
                         <img src="https://www.freshapproach.org/wp-content/uploads/2020/03/coronavirus.jpg" width="100px" height="60px" alt="heros" style={{borderRadius: '30px'}} ></img>    
                     </div>
                     <div className="col-12 col-sm-10">    
-                        <h1 id="h1" style={{marginLeft: '50px'}} >{props.name}</h1>
+                        <h1 id="h1" style={{marginLeft: '50px', marginTop: '10px'}} >{props.name}</h1>
                         <p></p>
                     </div>
                 </div>

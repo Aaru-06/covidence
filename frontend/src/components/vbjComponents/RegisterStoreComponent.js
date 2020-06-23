@@ -100,10 +100,11 @@ class RegisterStore extends Component {
                 <AvField
                   className="reginput"
                   name="pincode"
-                  id="pincode"
                   label="Pincode"
+                  id="pincode"
                   placeholder="Enter Pincode"
                   type="text"
+                  style={{width: '550px'}}
                   innerRef={(input) => (this.pincode = input)}
                   errorMessage="Pincode Required ..!!"
                   validate={{ number: true, required: true }}
@@ -111,7 +112,7 @@ class RegisterStore extends Component {
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "17px", marginTop: '15px' }}
+                    style={{ fontSize: "17px", marginTop: '15px', borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
                     color="danger"
                     outline="none"
                   >
