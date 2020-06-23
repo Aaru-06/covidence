@@ -38,7 +38,7 @@ class Shop extends Component {
     console.log(this.props.location.name);
     return (
       <div className="statpage">
-        <Header name="Shop" />
+        <Header name={this.props.location.name} />
         <div className="row">
           <div className="col-12 col-sm-6">
             <img
