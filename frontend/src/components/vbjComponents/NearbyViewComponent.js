@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
 
 const NearbyView = (props) => {
   return props.pin.map((pincode) => {
+    const newTo = {
+      pathname: ROUTES.SHOP,
+      name: pincode.Name,
+    };
     return (
       <div className="row">
         <Card className="root">
@@ -32,12 +36,12 @@ const NearbyView = (props) => {
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>  
-          <Link to={ROUTES.SHOP} >          
+          <CardActions>
+            <Link to={newTo}>
               <Button size="large" color="primary">
                 Click to Buy
               </Button>
-          </Link>
+            </Link>
           </CardActions>
         </Card>
       </div>
