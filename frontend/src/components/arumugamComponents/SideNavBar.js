@@ -16,7 +16,7 @@ class SideNavBar extends Component{
     }
 
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         // navigation code to be written in onSelect props of sidenav
         return(
             <SideNav className="snb">
