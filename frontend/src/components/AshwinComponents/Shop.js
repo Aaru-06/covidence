@@ -1,6 +1,15 @@
 import React, { Component } from "react";
-import storage from "../../config/firebase";
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import { storage } from "../../config/firebase";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+} from "reactstrap";
 import Header from "../vbjComponents/HeaderView";
 import img from "../../images/shop.jpg";
 import {
@@ -15,107 +24,114 @@ import { Redirect } from "react-router-dom";
 
 const RenderCart = (props) => {
   return props.order.map((order) => {
-    return(
-      <p 
-      style={{
-        margin:' 15px 0px 20px 30px ',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        wordSpacing: '10px'
-      }} > {order.item} : {order.qty} </p>
+    return (
+      <p
+        style={{
+          margin: " 15px 0px 20px 30px ",
+          fontSize: "18px",
+          fontWeight: "bold",
+          wordSpacing: "10px",
+        }}
+      >
+        {" "}
+        {order.item} : {order.qty}{" "}
+      </p>
     );
   });
-}
-
+};
 
 class Shop extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      manual: 'False',
+      manual: "False",
       flag: false,
       show: false,
-      fileval: '',
-      item: '',
-      qty: '',
-    	order : [],
-      cust: '',
-      object : {}    	
-    };    
+      fileval: "",
+      item: "",
+      qty: "",
+      order: [],
+      cust: "",
+      object: {},
+    };
     this.AddCart = this.AddCart.bind(this);
     this.PlaceOrder = this.PlaceOrder.bind(this);
     this.ViewCart = this.ViewCart.bind(this);
     this.handleName = this.handleName.bind(this);
     this.handleqty = this.handleqty.bind(this);
-    this.HandleFile = this.HandleFile.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
-  
 
-  HandleFile = (e) => {
-    this.setState({fileval: e.target.files[0], manual: 'True'}, () => console.log(this.state.fileval.name));
-    const uploadTask = storage.ref(`Carts/${this.state.fileval.name}`).put(this.state.fileval);
+  handleChange = (e) => {
+    this.setState({ fileval: e.target.files[0], manual: "True" }, () =>
+      console.log(this.state.fileval)
+    );
+  };
+
+  handleUpload = () => {
+    const uploadTask = storage
+      .ref(`Carts/${this.state.fileval.name}`)
+      .put(this.state.fileval);
     uploadTask.on(
-    "state_changed",
-    (snapshot) => {},
-    error => {
-      console.log(error);
-    },
-    () => {
-      storage.ref("Carts")
-      .child(this.state.fileval.name)
-      .getDownloadURL()
-      .then(url => {
-        console.log(url);
-      });
-    });
+      "state_changed",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("Carts")
+          .child(this.state.fileval.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(url);
+          });
+      }
+    );
+  };
+
+  handleName(e) {
+    this.setState({ item: e.target.value });
   }
 
-  handleName(e){
-    this.setState({item: e.target.value});
+  handleqty(e) {
+    this.setState({ qty: e.target.value });
   }
 
-  handleqty(e){
-    this.setState({qty: e.target.value});
-  }
-
-  AddCart(event, errors, values){  
-  if(this.state.item === '' || this.state.qty ===''){
-    window.alert("Null Values Found ..!!");
-  }  
-  else{
-      const obj = {'item': this.state.item  , 'qty': this.state.qty};
+  AddCart(event, errors, values) {
+    if (this.state.item === "" || this.state.qty === "") {
+      window.alert("Null Values Found ..!!");
+    } else {
+      const obj = { item: this.state.item, qty: this.state.qty };
       const neword = this.state.order.slice();
       neword.push(obj);
-      this.setState({ order: neword}, ()=> console.log(this.state.order)); 
+      this.setState({ order: neword }, () => console.log(this.state.order));
     }
   }
 
-  ViewCart(){
-    this.setState({show: !this.state.show}); 
+  ViewCart() {
+    this.setState({ show: !this.state.show });
   }
 
-  PlaceOrder(event, errors, values){
+  PlaceOrder(event, errors, values) {
     event.preventDefault();
     let ref = firebase.database().ref("Stores");
 
     ref.on("value", (snapshot) => {
       let stores = snapshot.val();
-      if(stores!==null){
+      if (stores !== null) {
         Object.keys(stores)
-        .filter((key) => {
-          return stores[key].Name == this.props.location.name;
-        })
-        .map((key) => {
-          this.setState({cust: key}, ()=> console.log(this.state.cust))
-        })
-      }      
+          .filter((key) => {
+            return stores[key].Name == this.props.location.name;
+          })
+          .map((key) => {
+            this.setState({ cust: key }, () => console.log(this.state.cust));
+          });
+      }
     });
-
-
-    
   }
-    
 
   render() {
     if (this.state.flag) {
@@ -143,15 +159,18 @@ class Shop extends Component {
                   className="reginput"
                   name="item"
                   id="item"
-                  value = {this.state.item}
+                  value={this.state.item}
                   label="Name"
                   type="text"
                   onChange={this.handleName}
                   innerRef={(input) => (this.item = input)}
                   errorMessage="Name Required ..!!"
-                  validate={{ 
-                    required: {value: true, errorMessage: 'Enter Name ..!!'},
-                    pattern: {value: '^[A-Za-z]+$', errorMessage: 'Invalid Name ..!!'}
+                  validate={{
+                    required: { value: true, errorMessage: "Enter Name ..!!" },
+                    pattern: {
+                      value: "^[A-Za-z]+$",
+                      errorMessage: "Invalid Name ..!!",
+                    },
                   }}
                 ></AvField>
 
@@ -159,15 +178,21 @@ class Shop extends Component {
                   className="reginput"
                   name="qty"
                   id="qty"
-                  value = {this.state.qty}
+                  value={this.state.qty}
                   label="Quantity"
                   type="text"
                   onChange={this.handleqty}
                   innerRef={(input) => (this.qty = input)}
                   errorMessage="Quantity must be a Number ..!!"
                   validate={{
-                    required: {value: true, errorMessage: 'Enter Quantity ..!!'},
-                    number : {value: true, errorMessage: 'Quantity must be a Number ..!!'}
+                    required: {
+                      value: true,
+                      errorMessage: "Enter Quantity ..!!",
+                    },
+                    number: {
+                      value: true,
+                      errorMessage: "Quantity must be a Number ..!!",
+                    },
                   }}
                 ></AvField>
 
@@ -224,18 +249,43 @@ class Shop extends Component {
                   <i
                     className="fa fa-shopping-cart"
                     aria-hidden="true"
-                    style={{marginRight: "7px", width: "34px" }}
+                    style={{ marginRight: "7px", width: "34px" }}
                   ></i>
                   View Cart
                 </Button>
-                <Label for="files" style={{cursor: 'pointer', float: 'right'}} ><i class="fa fa-cloud-upload" style={{color: '#db0202', width: '65px', fontSize: '35px'}} ></i></Label>
-                <Input onChange={this.HandleFile} id="files" type="file" style={{display: 'none'}} />
+                <Label
+                  for="files"
+                  style={{ cursor: "pointer", float: "right" }}
+                >
+                  <i
+                    class="fa fa-cloud-upload"
+                    style={{
+                      color: "#db0202",
+                      width: "65px",
+                      fontSize: "35px",
+                    }}
+                  ></i>
+                </Label>
+                <Input
+                  onChange={this.handleChange}
+                  id="files"
+                  type="file"
+                  style={{ display: "none" }}
+                />
+                <button onClick={this.handleUpload}>Upload</button>
               </FormGroup>
             </div>
           </div>
         </div>
-        <Modal style={{marginTop: '100px'}} isOpen={this.state.show} toggle={this.ViewCart} >
-          <ModalHeader> <h2 style={{marginLeft: '200px'}}> My Cart </h2> </ModalHeader>
+        <Modal
+          style={{ marginTop: "100px" }}
+          isOpen={this.state.show}
+          toggle={this.ViewCart}
+        >
+          <ModalHeader>
+            {" "}
+            <h2 style={{ marginLeft: "200px" }}> My Cart </h2>{" "}
+          </ModalHeader>
           <ModalBody>
             <RenderCart order={this.state.order} />
           </ModalBody>
@@ -248,7 +298,7 @@ class Shop extends Component {
 export default Shop;
 
 // ref.child("Carts").push({
-        
+
 //       });
 
 // <Button
