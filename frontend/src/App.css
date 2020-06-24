@@ -38,6 +38,11 @@
   box-shadow: 0px 7px 5px #d4d4d4;
 }
 
+.alignhome {
+  text-align: center;
+  margin: 25px;
+}
+
 .jumbotron {
   background-color: lightblue;
   color: beige;
