@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import storage from "../../config/firebase";
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import Header from "../vbjComponents/HeaderView";
 import img from "../../images/shop.jpg";
@@ -32,11 +33,14 @@ class Shop extends Component {
     super(props);
 
     this.state = {
+      manual: 'False',
       flag: false,
       show: false,
+      fileval: '',
       item: '',
       qty: '',
     	order : [],
+      cust: '',
       object : {}    	
     };    
     this.AddCart = this.AddCart.bind(this);
@@ -44,6 +48,26 @@ class Shop extends Component {
     this.ViewCart = this.ViewCart.bind(this);
     this.handleName = this.handleName.bind(this);
     this.handleqty = this.handleqty.bind(this);
+    this.HandleFile = this.HandleFile.bind(this);
+  }
+
+  HandleFile = (e) => {
+    this.setState({fileval: e.target.files[0], manual: 'True'}, () => console.log(this.state.fileval.name));
+    const uploadTask = storage.ref(`Carts/${this.state.fileval.name}`).put(this.state.fileval);
+    uploadTask.on(
+    "state_changed",
+    (snapshot) => {},
+    error => {
+      console.log(error);
+    },
+    () => {
+      storage.ref("Carts")
+      .child(this.state.fileval.name)
+      .getDownloadURL()
+      .then(url => {
+        console.log(url);
+      });
+    });
   }
 
   handleName(e){
@@ -68,19 +92,23 @@ class Shop extends Component {
 
   PlaceOrder(event, errors, values){
     event.preventDefault();
-    let ref = firebase.database().ref();
-    this.setState({ errors, values });
+    let ref = firebase.database().ref("Stores");
 
-    if (errors.length === 0) {
+    ref.on("value", (snapshot) => {
+      let stores = snapshot.val();
+      if(stores!==null){
+        Object.keys(stores)
+        .filter((key) => {
+          return stores[key].Name == this.props.location.name;
+        })
+        .map((key) => {
+          this.setState({cust: key}, ()=> console.log(this.state.cust))
+        })
+      }      
+    });
 
-      console.log('Success..!!');
 
-      this.setState({
-        flag: true,
-      });
-    } else {
-      console.log(errors);
-    }
+    
   }
     
 
@@ -144,7 +172,7 @@ class Shop extends Component {
                     onClick={this.AddCart}
                   >
                     <i
-                      class="fa fa-cart-plus"
+                      className="fa fa-cart-plus"
                       aria-hidden="true"
                       style={{ marginRight: "7px" }}
                     ></i>
@@ -160,9 +188,10 @@ class Shop extends Component {
                     }}
                     color="danger"
                     outline="none"
+                    onClick={this.PlaceOrder}
                   >
                     <i
-                      class="fa fa-check-circle-o"
+                      className="fa fa-check-circle-o"
                       aria-hidden="true"
                       style={{ marginRight: "7px" }}
                     ></i>
@@ -182,30 +211,14 @@ class Shop extends Component {
                   onClick={this.ViewCart}
                 >
                   <i
-                    class="fa fa-shopping-cart"
+                    className="fa fa-shopping-cart"
                     aria-hidden="true"
-                    style={{ marginRight: "7px", width: "35px" }}
+                    style={{marginRight: "7px", width: "34px" }}
                   ></i>
                   View Cart
                 </Button>
-                <Button
-                  style={{
-                    fontSize: "17px",
-                    float: "right",
-                    width: "142px",
-                    borderWidth: "3px",
-                    boxShadow: "0px 7px 5px #d4d4d4",
-                  }}
-                  color="danger"
-                  outline="none"
-                >
-                  <i
-                    class="fas fa-clipboard-list"
-                    aria-hidden="true"
-                    style={{ marginRight: "7px" }}
-                  ></i>
-                  Manual List
-                </Button>
+                <Label for="files" style={{cursor: 'pointer', float: 'right'}} ><i class="fa fa-cloud-upload" style={{color: '#db0202', width: '65px', fontSize: '35px'}} ></i></Label>
+                <Input onChange={this.HandleFile} id="files" type="file" style={{display: 'none'}} />
               </FormGroup>
             </div>
           </div>
@@ -226,3 +239,22 @@ export default Shop;
 // ref.child("Carts").push({
         
 //       });
+
+// <Button
+//                   style={{
+//                     fontSize: "17px",
+//                     float: "right",
+//                     width: "142px",
+//                     borderWidth: "3px",
+//                     boxShadow: "0px 7px 5px #d4d4d4",
+//                   }}
+//                   color="danger"
+//                   outline="none"
+//                 >
+//                   <i
+//                     class="fas fa-clipboard-list"
+//                     aria-hidden="true"
+//                     style={{ marginRight: "7px" }}
+//                   ></i>
+//                   Manual List
+//                 </Button>

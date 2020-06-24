@@ -14,7 +14,7 @@ const NearbyView = (props) => {
   return props.pin.map((pincode) => {
     const newTo = {
       pathname: ROUTES.SHOP,
-      name: pincode.Name,
+      name: pincode.Name
     };
     return (
       <div className="row">
