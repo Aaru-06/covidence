@@ -40,11 +40,15 @@ class Main extends Component {
           <Route path={ROUTES.MYLOC} component={MyLoc} />
           <Route path={ROUTES.STATS} component={Stats} />
           <Route path={ROUTES.STORE} component={Store} />
-          <Route path={ROUTES.REGSTORE} component={RegisterStore} />          
-          <Route path={ROUTES.EPASS} component={() => { 
-           window.location.href = 'http://serviceonline.gov.in/epass/'; 
-           return null; }}/>
-          <Route path={ROUTES.MAP_SERVICES} component={HospitalFinder}/>
+          <Route path={ROUTES.REGSTORE} component={RegisterStore} />
+          <Route
+            path={ROUTES.EPASS}
+            component={() => {
+              window.location.href = "http://serviceonline.gov.in/epass/";
+              return null;
+            }}
+          />
+          <Route path={ROUTES.MAP_SERVICES} component={HospitalFinder} />
           <Route path={ROUTES.REGSTORE} component={RegisterStore} />
           <Route path={ROUTES.NEARBY_STORE} component={NearbyStore} />
           <Route path={ROUTES.SHOP} component={Shop} />
