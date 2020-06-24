@@ -50,6 +50,7 @@ class Shop extends Component {
     this.handleqty = this.handleqty.bind(this);
     this.HandleFile = this.HandleFile.bind(this);
   }
+  
 
   HandleFile = (e) => {
     this.setState({fileval: e.target.files[0], manual: 'True'}, () => console.log(this.state.fileval.name));
@@ -78,12 +79,16 @@ class Shop extends Component {
     this.setState({qty: e.target.value});
   }
 
-  AddCart(){
-    const obj = {'item': this.state.item  , 'qty': this.state.qty};
-    const neword = this.state.order.slice();
-    neword.push(obj);
-    this.setState({ order: neword}, ()=> console.log(this.state.order)); 
-
+  AddCart(event, errors, values){  
+  if(this.state.item === '' || this.state.qty ===''){
+    window.alert("Null Values Found ..!!");
+  }  
+  else{
+      const obj = {'item': this.state.item  , 'qty': this.state.qty};
+      const neword = this.state.order.slice();
+      neword.push(obj);
+      this.setState({ order: neword}, ()=> console.log(this.state.order)); 
+    }
   }
 
   ViewCart(){
@@ -133,7 +138,7 @@ class Shop extends Component {
           <div className="col-12 col-sm-6">
             <div className="reg">
               <h2 id="regh2">Make Your Order</h2>
-              <AvForm onSubmit={this.PlaceOrder} >
+              <AvForm>
                 <AvField
                   className="reginput"
                   name="item"
@@ -144,7 +149,10 @@ class Shop extends Component {
                   onChange={this.handleName}
                   innerRef={(input) => (this.item = input)}
                   errorMessage="Name Required ..!!"
-                  required
+                  validate={{ 
+                    required: {value: true, errorMessage: 'Enter Name ..!!'},
+                    pattern: {value: '^[A-Za-z]+$', errorMessage: 'Invalid Name ..!!'}
+                  }}
                 ></AvField>
 
                 <AvField
@@ -157,7 +165,10 @@ class Shop extends Component {
                   onChange={this.handleqty}
                   innerRef={(input) => (this.qty = input)}
                   errorMessage="Quantity must be a Number ..!!"
-                  validate={{ number: true, required: true }}
+                  validate={{
+                    required: {value: true, errorMessage: 'Enter Quantity ..!!'},
+                    number : {value: true, errorMessage: 'Quantity must be a Number ..!!'}
+                  }}
                 ></AvField>
 
                 <FormGroup id="shopbut">
