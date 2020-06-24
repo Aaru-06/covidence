@@ -12,7 +12,7 @@ const Landing = () => {
       <Header name="Welcome" />
       <SideNavBar />
       <div className="container">
-        <div className="align">
+        <div className="alignhome">
           <h1 style={{ marginBottom: "20px" }}>Click Here to Sign In</h1>
           <Link to={ROUTES.SIGN_IN}>
             <Button variant="contained" color="primary">
