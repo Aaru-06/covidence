@@ -92,7 +92,7 @@
 }
 
 .reg {
-  width: 550px;
+  width: 570px;
   margin-top: 40px;
   font-size: 18px;
   font-weight: bold;
@@ -352,12 +352,38 @@ select:focus {
   background: transparent;
 }
 
-/*::-webkit-file-upload-button {
+#upload{
   background: white;
-  color: red;
+  color: #db0202;
   font-size: 17px;
   padding: 7px;
   border: 3px solid #db0202;
   border-radius: 5px;
-  margin-top: 40px;
-}*/
+  height: 42px;
+  margin-left: 289px;
+  width: 100px;
+  cursor: pointer;
+}
+
+#up{
+  background: white;
+  color: #db0202;
+  font-size: 12px;
+  border: 3px solid #db0202;
+  border-radius: 5px;
+  height: 32px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.note{
+  font-size: 17px;
+  font-weight: bold; 
+}
+
+.notes{
+  font-size: 17px;
+  font-weight: bold;
+  word-spacing: 5px;
+  margin-left: 110px;
+}
