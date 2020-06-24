@@ -22,7 +22,7 @@ class MyLoc extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="myloch2">Alert</h1>
+              <h1 className="myloch2">{this.props.key}</h1>
               <AvForm onSubmit={this.handleSubmit}>
                 <div>
                   <AvCheckboxGroup

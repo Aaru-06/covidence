@@ -10,7 +10,7 @@ import { FormGroup, Button } from "reactstrap";
 import firebase from "../../config/firebase";
 import * as ROUTES from "../../constants/routes";
 import { Redirect } from "react-router-dom";
-
+var key;
 class RegisterView extends Component {
   constructor(props) {
     super(props);
@@ -24,21 +24,24 @@ class RegisterView extends Component {
 
   handleSubmit(event, errors, values) {
     event.preventDefault();
-    let ref = firebase.database().ref().child("users").push();
-    let key = ref.key();
+    let ref = firebase.database().ref();
     this.setState({ errors, values });
     console.log(values["address"]);
     if (errors.length === 0) {
-      var newData = {
-        id: key,
-        Address: values["address"],
-        Dob: values["dob"],
-        Gender: values["gender"],
-        Name: values["idname"],
-        Pincode: values["pincode"],
-      };
-      ref.push(newData);
-      console.log(newData.id);
+      ref
+        .child("users")
+        .push({
+          Address: values["address"],
+          Dob: values["dob"],
+          Gender: values["gender"],
+          Name: values["idname"],
+          Pincode: values["pincode"],
+        })
+        .then((snap) => {
+          this.setState({
+            local: snap.key,
+          });
+        });
       this.setState({
         flag: true,
       });
@@ -48,13 +51,14 @@ class RegisterView extends Component {
   }
 
   render() {
+    console.log(this.state.local);
     if (this.state.flag) {
       return (
         <Redirect
           to={{
             pathname: ROUTES.MYLOC,
             state: {
-              id: "",
+              id: this.state.local,
             },
           }}
         />
