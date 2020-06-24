@@ -1,29 +1,83 @@
-import React,{Component} from 'react';
-import {Map, GoogleApiWrapper} from 'google-maps-react';
-import "../../constants/apiKey";
+import React, { Component } from "react";
+import Header from "./HeaderView";
+import SideNavBar from "../arumugamComponents/SideNavBar";
+import {
+  AvForm,
+  AvCheckboxGroup,
+  AvCheckbox,
+} from "availity-reactstrap-validation";
+import { Button, FormGroup } from "reactstrap";
+import "../../App.css";
+import "./styles/styles.css";
+class MyLoc extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-const mapStyles = {
-    width: '100%',
-    height: '100%'
-};
-
-
-export class MyLocComponent extends Component{
-    render(){
-        return(
-            <Map
-                google={this.props.google}
-                zoom={14}
-                style={mapStyles}
-                initialCenter={{
-                    lat: -1.2884,
-                    lng: 36.8233
-                }}
-            />
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Header name="MyLocation" />
+        <SideNavBar />
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h1 className="myloch2">Alert</h1>
+              <AvForm onSubmit={this.handleSubmit}>
+                <div>
+                  <AvCheckboxGroup
+                    inline
+                    required
+                    className="out"
+                    id="doncheck"
+                    errorMessage="Pick one ..!!"
+                    name="doncheck"
+                    validate={{ min: { value: 1 } }}
+                  >
+                    <div className="row">
+                      <AvCheckbox
+                        className="out"
+                        type="checkbox"
+                        label="Are you infected by Covid?"
+                        name="infect"
+                      />
+                    </div>
+                    <div className="row">
+                      <AvCheckbox
+                        className="out"
+                        type="checkbox"
+                        label="Set your location history as public"
+                        name="public"
+                      />
+                    </div>
+                  </AvCheckboxGroup>
+                  <FormGroup id="regbut">
+                    <Button
+                      style={{
+                        fontSize: "17px",
+                        marginBottom: "50px",
+                        borderWidth: "3px",
+                        boxShadow: "0px 7px 5px #d4d4d4",
+                      }}
+                      color="danger"
+                      outline="none"
+                    >
+                      <i
+                        class="fa fa-user-circle-o"
+                        aria-hidden="true"
+                        style={{ marginRight: "7px" }}
+                      ></i>
+                      Register
+                    </Button>
+                  </FormGroup>
+                </div>
+              </AvForm>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'GOOGLE_MAPS_API_KEY'
-})(MyLocComponent);
+export default MyLoc;

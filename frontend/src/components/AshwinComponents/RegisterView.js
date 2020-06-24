@@ -5,7 +5,7 @@ import {
   AvRadioGroup,
   AvRadio,
 } from "availity-reactstrap-validation";
-import Header from '../vbjComponents/HeaderView';
+import Header from "../vbjComponents/HeaderView";
 import { FormGroup, Button } from "reactstrap";
 import firebase from "../../config/firebase";
 import * as ROUTES from "../../constants/routes";
@@ -24,17 +24,21 @@ class RegisterView extends Component {
 
   handleSubmit(event, errors, values) {
     event.preventDefault();
-    let ref = firebase.database().ref();
+    let ref = firebase.database().ref().child("users").push();
+    let key = ref.key();
     this.setState({ errors, values });
     console.log(values["address"]);
     if (errors.length === 0) {
-      ref.child("users").push({
-        address: values["address"],
-        dob: values["dob"],
-        gender: values["gender"],
-        idname: values["idname"],
-        pincode: values["pincode"],
-      });
+      var newData = {
+        id: key,
+        Address: values["address"],
+        Dob: values["dob"],
+        Gender: values["gender"],
+        Name: values["idname"],
+        Pincode: values["pincode"],
+      };
+      ref.push(newData);
+      console.log(newData.id);
       this.setState({
         flag: true,
       });
@@ -45,10 +49,19 @@ class RegisterView extends Component {
 
   render() {
     if (this.state.flag) {
-      return <Redirect to={ROUTES.DASHBOARD} />;
+      return (
+        <Redirect
+          to={{
+            pathname: ROUTES.MYLOC,
+            state: {
+              id: "",
+            },
+          }}
+        />
+      );
     }
     return (
-      <div className="statpage" >
+      <div className="statpage">
         <Header name="Register" />
         <div className="row">
           <div className="col-12 col-sm-6">
@@ -130,7 +143,12 @@ class RegisterView extends Component {
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "17px", marginBottom: "50px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
+                    style={{
+                      fontSize: "17px",
+                      marginBottom: "50px",
+                      borderWidth: "3px",
+                      boxShadow: "0px 7px 5px #d4d4d4",
+                    }}
                     color="danger"
                     outline="none"
                   >
