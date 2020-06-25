@@ -53,8 +53,8 @@ class Shop extends Component {
       qty: "",
       order: [],
       store: "",
-      object: '',
-      imgurl: ''
+      object: "",
+      imgurl: "",
     };
 
     this.AddCart = this.AddCart.bind(this);
@@ -67,30 +67,29 @@ class Shop extends Component {
   }
 
   componentDidMount() {
-	    let ref = firebase.database().ref("Stores");
-	    ref.on("value", (snapshot) => {
-	      let stores = snapshot.val();
-	      if (stores !== null) {
-	        Object.keys(stores)
-	          .filter((key) => {
-	            return stores[key].Name == this.props.location.name;
-	          })
-	          .map((key) => {
-	            this.setState({ store: key }, () => console.log(this.state.store));
-	          });
-	      }
-	    });
-	}
-
+    let ref = firebase.database().ref("Stores");
+    ref.on("value", (snapshot) => {
+      let stores = snapshot.val();
+      if (stores !== null) {
+        Object.keys(stores)
+          .filter((key) => {
+            return stores[key].Name == this.props.location.name;
+          })
+          .map((key) => {
+            this.setState({ store: key }, () => console.log(this.state.store));
+          });
+      }
+    });
+  }
 
   handleChange = (e) => {
     this.setState({ fileval: e.target.files[0], manual: "True" }, () =>
       console.log(this.state.manual)
-    );    
+    );
   };
 
   handleUpload = (e) => {
-  	const uploadTask = storage
+    const uploadTask = storage
       .ref(`Carts/${this.state.fileval.name}`)
       .put(this.state.fileval);
     uploadTask.on(
@@ -105,7 +104,9 @@ class Shop extends Component {
           .child(this.state.fileval.name)
           .getDownloadURL()
           .then((url) => {
-            this.setState({imgurl: url}, ()=> console.log(this.state.imgurl));
+            this.setState({ imgurl: url }, () =>
+              console.log(this.state.imgurl)
+            );
           });
       }
     );
@@ -123,7 +124,7 @@ class Shop extends Component {
     if (this.state.item === "" || this.state.qty === "") {
       window.alert("Null Values Found ..!!");
     } else {
-      const obj = this.state.item + ' : ' + this.state.qty;
+      const obj = this.state.item + " : " + this.state.qty;
       const neword = this.state.order.slice();
       neword.push(obj);
       this.setState({ order: neword }, () => console.log(this.state.order));
@@ -138,34 +139,38 @@ class Shop extends Component {
     event.preventDefault();
     let refs = firebase.database().ref();
 
-    
-  	if(this.state.manual === "True"){
-  		refs.child("Carts").push({
+    if (this.state.manual === "True") {
+      refs.child("Carts").push({
         shopId: this.state.store,
         imageUri: this.state.imgurl,
         manuel: this.state.manual,
-        customerId: "1234"
+        customerId: "1234",
       });
-  	}
-  	else{
-  		refs.child("Carts").push({
-  		Items: this.state.order,
-  		shopId: this.state.store,
-  		imageUri: "Null",
-  		manuel: this.state.manual,
-  		customerId: "1234"
-  		})
-  	}
-  	this.setState({
-        flag: true }, () => {
-        	console.log(this.state.order);
-		    console.log(this.state.store);
-		    console.log(this.state.imgurl);
-		    console.log(this.state.manual);
-        });     
+    } else {
+      refs.child("Carts").push({
+        Items: this.state.order,
+        shopId: this.state.store,
+        imageUri: "Null",
+        manuel: this.state.manual,
+        customerId: "1234",
+      });
+    }
+    this.setState(
+      {
+        flag: true,
+      },
+      () => {
+        console.log(this.state.order);
+        console.log(this.state.store);
+        console.log(this.state.imgurl);
+        console.log(this.state.manual);
+      }
+    );
   }
 
   render() {
+    var CustomerKey = localStorage.getItem("snapKeys");
+    console.log(CustomerKey);
     if (this.state.flag) {
       return <Redirect to={ROUTES.DASHBOARD} />;
     }
@@ -186,7 +191,7 @@ class Shop extends Component {
           <div className="col-12 col-sm-6">
             <div className="reg">
               <h2 id="regh2">Make Your Order</h2>
-              <AvForm onSubmit={this.PlaceOrder} >
+              <AvForm onSubmit={this.PlaceOrder}>
                 <AvField
                   className="reginput"
                   name="item"
@@ -285,10 +290,12 @@ class Shop extends Component {
                   ></i>
                   View Cart
                 </Button>
-                <button id="upload" onClick={this.handleUpload}>Upload</button>
+                <button id="upload" onClick={this.handleUpload}>
+                  Upload
+                </button>
                 <Label
                   for="files"
-                  style={{ cursor: "pointer", float: 'right'}}
+                  style={{ cursor: "pointer", float: "right" }}
                 >
                   <i
                     class="fa fa-cloud-upload"
@@ -305,23 +312,33 @@ class Shop extends Component {
                   type="file"
                   style={{ display: "none" }}
                 />
-                
               </FormGroup>
             </div>
-            <h3 style={{marginTop: '40px'}} >Note*</h3>
-	        <p className="note" >You can Either : </p>
-	        <p className="notes" >1. Enter Items Name and Add to Cart</p>
-	        <p className="notes" style={{marginBottom: '50px'}} >2. Choose Your own Item List using <span><i
-	                    class="fa fa-cloud-upload"
-	                    style={{
-	                      color: "#db0202",
-	                      width: "20px",
-	                      fontSize: "25px",
-	                      marginRight: "8px"
-	                    }}
-	                  ></i></span> icon and <span><button disabled id="up">Upload</button> </span> </p>
+            <h3 style={{ marginTop: "40px" }}>Note*</h3>
+            <p className="note">You can Either : </p>
+            <p className="notes">1. Enter Items Name and Add to Cart</p>
+            <p className="notes" style={{ marginBottom: "50px" }}>
+              2. Choose Your own Item List using{" "}
+              <span>
+                <i
+                  class="fa fa-cloud-upload"
+                  style={{
+                    color: "#db0202",
+                    width: "20px",
+                    fontSize: "25px",
+                    marginRight: "8px",
+                  }}
+                ></i>
+              </span>{" "}
+              icon and{" "}
+              <span>
+                <button disabled id="up">
+                  Upload
+                </button>{" "}
+              </span>{" "}
+            </p>
           </div>
-        </div>        
+        </div>
         <Modal
           style={{ marginTop: "100px" }}
           isOpen={this.state.show}
@@ -340,5 +357,3 @@ class Shop extends Component {
 }
 
 export default Shop;
-
-

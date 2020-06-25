@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import firebase from "../../config/firebase";
-import * as ROUTES from "../../constants/routes";
-import { Redirect } from "react-router-dom";
-
 import {
   AvForm,
   AvField,
   AvRadioGroup,
   AvRadio,
 } from "availity-reactstrap-validation";
+import Header from "../vbjComponents/HeaderView";
 import { FormGroup, Button } from "reactstrap";
-import "../../App.css";
-
-class RegisterStore extends Component {
+import firebase from "../../config/firebase";
+import * as ROUTES from "../../constants/routes";
+import { Redirect } from "react-router-dom";
+var key;
+class RegisterView extends Component {
   constructor(props) {
     super(props);
+
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
@@ -27,16 +27,19 @@ class RegisterStore extends Component {
     let ref = firebase.database().ref();
     this.setState({ errors, values });
     console.log(values["address"]);
-    console.log(values["select"]);
-    console.log(values["pincode"]);
-    console.log(values["idname"]);
     if (errors.length === 0) {
-      ref.child("Stores").push({
-        Address: values["address"],
-        Name: values["idname"],
-        Pincode: values["pincode"],
-        Type: values["select"],
-      });
+      ref
+        .child("users")
+        .push({
+          Address: values["address"],
+          Dob: values["dob"],
+          Gender: values["gender"],
+          Name: values["idname"],
+          Pincode: values["pincode"],
+        })
+        .then((snap) => {
+          localStorage.setItem("snapKey", snap.key);
+        });
       this.setState({
         flag: true,
       });
@@ -46,18 +49,20 @@ class RegisterStore extends Component {
   }
 
   render() {
+    console.log(this.state.local);
     if (this.state.flag) {
-      return <Redirect to={ROUTES.STORE} />;
+      return <Redirect to={ROUTES.MYLOC} />;
     }
     return (
-      <div>
+      <div className="statpage">
+        <Header name="Register" />
         <div className="row">
           <div className="col-12 col-sm-6">
             <img
               className="myImage"
-              src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+              src="https://cdn.kalingatv.com/wp-content/uploads/2020/04/registration.png"
               width="600px"
-              height="753px"
+              height="925px"
               alt="img"
             ></img>
           </div>
@@ -71,26 +76,16 @@ class RegisterStore extends Component {
                   name="idname"
                   id="idname"
                   label="Name"
-                  placeholder="Enter Store name"
                   type="text"
                   innerRef={(input) => (this.idname = input)}
                   errorMessage="Name Required ..!!"
                   required
                 ></AvField>
-
-                <AvField type="select" className="reginput" name="select" label="Type" required errorMessage="Pick one ..!!">
-                  <option>Select</option>
-                  <option>Grocery</option>
-                  <option>Departmental</option>
-                  <option>Fruits</option>
-                  <option>Fruits and Groceries</option>
-                </AvField>
                 <AvField
                   className="reginput"
                   name="address"
                   id="address"
                   label="Address"
-                  placeholder="Enter Store address"
                   type="text"
                   innerRef={(input) => (this.address = input)}
                   errorMessage="Address Required ..!!"
@@ -100,19 +95,53 @@ class RegisterStore extends Component {
                 <AvField
                   className="reginput"
                   name="pincode"
-                  label="Pincode"
                   id="pincode"
-                  placeholder="Enter Pincode"
+                  label="Pincode"
                   type="text"
-                  style={{width: '550px'}}
                   innerRef={(input) => (this.pincode = input)}
                   errorMessage="Pincode Required ..!!"
                   validate={{ number: true, required: true }}
                 ></AvField>
+                <AvField
+                  className="reginput"
+                  name="dob"
+                  id="dob"
+                  label="Date of Birth"
+                  type="date"
+                  innerRef={(input) => (this.dob = input)}
+                  errorMessage="Date of Birth Required ..!!"
+                  required
+                ></AvField>
+
+                <AvRadioGroup
+                  name="gender"
+                  id="gender"
+                  label="Gender"
+                  required
+                  errorMessage="Pick one ..!!"
+                >
+                  <AvRadio
+                    className="genopt"
+                    customInput
+                    label="Male"
+                    value="male"
+                  />
+                  <AvRadio
+                    className="genopt"
+                    customInput
+                    label="Female"
+                    value="female"
+                  />
+                </AvRadioGroup>
 
                 <FormGroup id="regbut">
                   <Button
-                    style={{ fontSize: "17px", marginTop: '15px', borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
+                    style={{
+                      fontSize: "17px",
+                      marginBottom: "50px",
+                      borderWidth: "3px",
+                      boxShadow: "0px 7px 5px #d4d4d4",
+                    }}
                     color="danger"
                     outline="none"
                   >
@@ -133,4 +162,4 @@ class RegisterStore extends Component {
   }
 }
 
-export default RegisterStore;
+export default RegisterView;

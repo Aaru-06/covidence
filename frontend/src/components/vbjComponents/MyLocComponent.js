@@ -15,6 +15,8 @@ class MyLoc extends Component {
   }
 
   render() {
+    var myLocKey = localStorage.getItem("snapKey");
+    console.log(myLocKey);
     return (
       <div>
         <Header name="MyLocation" />
