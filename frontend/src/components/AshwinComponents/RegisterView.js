@@ -10,7 +10,6 @@ import { FormGroup, Button } from "reactstrap";
 import firebase from "../../config/firebase";
 import * as ROUTES from "../../constants/routes";
 import { Redirect } from "react-router-dom";
-var key;
 class RegisterView extends Component {
   constructor(props) {
     super(props);
@@ -38,8 +37,10 @@ class RegisterView extends Component {
           Pincode: values["pincode"],
         })
         .then((snap) => {
+          var ckey = snap.key;
+          console.log(ckey);
           this.setState({
-            local: snap.key,
+            fire: ckey,
           });
         });
       this.setState({
@@ -50,8 +51,14 @@ class RegisterView extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState = (state, callback) => {
+      return;
+    };
+  }
+
   render() {
-    console.log(this.state.local);
+    console.log(this.state.fire);
     if (this.state.flag) {
       return (
         <Redirect
