@@ -11,7 +11,7 @@
   text-align: center;
   overflow: hidden;
 }
-
+/* 
 .btnbg {
   background-color: white;
   border: none;
@@ -23,6 +23,12 @@
   margin: 5px;
   font-size: 16px;
   width: 240px;
+} */
+
+.outt {
+  margin-top: 200px;
+  font-family: "Crimson Pro", serif;
+  font-size: 38px;
 }
 
 .tbg {
@@ -36,7 +42,7 @@
   margin-right: 20px;
   margin-bottom: 50px;
 }
-
+/* 
 .myloch2 {
   text-align: center;
   color: black;
@@ -46,13 +52,14 @@
     0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
     0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
     0 20px 20px rgba(0, 0, 0, 0.15);
-}
+} */
 
-.out {
+/* .out {
+  text-align: center;
   border-width: 3px;
   padding-left: 500px;
   padding-bottom: 200px;
-  margin-left: 170px;
+  margin-left: 300px;
   margin-top: 70px;
   box-shadow: 0px 7px 5px #d4d4d4;
-}
+} */

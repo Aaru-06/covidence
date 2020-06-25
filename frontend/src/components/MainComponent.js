@@ -18,6 +18,7 @@ import Store from "./vbjComponents/StoreComponent";
 import RegisterStore from "./vbjComponents/RegisterStoreComponent";
 import HospitalFinder from "./arumugamComponents/HospitalFinder";
 import NearbyStore from "./vbjComponents/NearbyStoreComponent";
+import InfectedLoc from "./vbjComponents/InfectedLocComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class Main extends Component {
           <Route path={ROUTES.REGSTORE} component={RegisterStore} />
           <Route path={ROUTES.NEARBY_STORE} component={NearbyStore} />
           <Route path={ROUTES.SHOP} component={Shop} />
+          <Route path={ROUTES.INFECTED_LOC} component={InfectedLoc} />
         </Switch>
       </div>
     );
