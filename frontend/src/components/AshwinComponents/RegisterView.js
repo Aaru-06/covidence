@@ -19,6 +19,7 @@ class RegisterView extends Component {
 
     this.state = {
       flag: false,
+      local :null
     };
   }
 
@@ -41,6 +42,8 @@ class RegisterView extends Component {
           this.setState({
             local: snap.key,
           });
+          localStorage.setItem("snapKey",snap);
+          
         });
       this.setState({
         flag: true,
