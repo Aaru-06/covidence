@@ -6,7 +6,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import "./styles/styles.css";
 import SideNavBar from "../arumugamComponents/SideNavBar";
 
-const TollFree = () => {
+const TollFree = (props) => {
   var [tollInfo, setTollInfo] = useState({});
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const TollFree = () => {
   return (
     <>
       <Header name="Toll Free" />
-      <SideNavBar />
+      <SideNavBar history={props.history} />
       <div className="container tbg">
         <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
           Emergency and Landline Numbers

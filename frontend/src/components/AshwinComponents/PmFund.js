@@ -32,7 +32,7 @@ class PmFund extends Component {
     return (
       <div id="scroll">
         <Header name="Covid 19 Fund" />
-        <SideNavBar />
+        <SideNavBar history={this.props.history} />
         <div className="row">
           <div className="col-12 col-sm-6">
             <img
@@ -81,7 +81,11 @@ class PmFund extends Component {
 
                 <FormGroup className="butpm">
                   <Button
-                    style={{ fontSize: "17px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
+                    style={{
+                      fontSize: "17px",
+                      borderWidth: "3px",
+                      boxShadow: "0px 7px 5px #d4d4d4",
+                    }}
                     color="danger"
                     outline="none"
                   >

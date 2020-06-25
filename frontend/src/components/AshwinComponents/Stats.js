@@ -116,7 +116,7 @@ class Stats extends Component {
     return (
       <div className="statpage">
         <Header name="Statistics" />
-        <SideNavBar />
+        <SideNavBar history={this.props.history} />
         <AvForm>
           <AvField
             type="select"

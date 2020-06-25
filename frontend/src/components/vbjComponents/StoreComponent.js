@@ -12,11 +12,11 @@ import * as ROUTES from "../../constants/routes";
 import { Link, Redirect } from "react-router-dom";
 import SideNavBar from "../arumugamComponents/SideNavBar";
 
-const Store = () => {
+const Store = (props) => {
   return (
     <div>
       <Header name="Stores" />
-      <SideNavBar />
+      <SideNavBar history={props.history} />
       <div className="row">
         <div className="col-12 col-md-4">
           <Card className="root">

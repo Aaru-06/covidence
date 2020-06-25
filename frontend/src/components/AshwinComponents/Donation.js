@@ -71,7 +71,7 @@ class Donation extends Component {
     return (
       <div id="scroll">
         <Header name="Donations" />
-        <SideNavBar />
+        <SideNavBar history={this.props.history} />
         <HelpCarousel />
         <div className="container donc">
           <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
@@ -127,7 +127,12 @@ class Donation extends Component {
             <FormGroup className="butdon">
               <Button
                 type="submit"
-                style={{ fontSize: "17px", marginBottom: "40px", borderWidth: '3px', boxShadow: '0px 7px 5px #d4d4d4' }}
+                style={{
+                  fontSize: "17px",
+                  marginBottom: "40px",
+                  borderWidth: "3px",
+                  boxShadow: "0px 7px 5px #d4d4d4",
+                }}
                 color="danger"
                 outline="none"
               >
@@ -140,8 +145,8 @@ class Donation extends Component {
                     fontSize: "17px",
                     float: "right",
                     marginBottom: "40px",
-                    borderWidth: '3px',
-                    boxShadow: '0px 7px 5px #d4d4d4'
+                    borderWidth: "3px",
+                    boxShadow: "0px 7px 5px #d4d4d4",
                   }}
                   color="danger"
                   outline="none"

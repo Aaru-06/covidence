@@ -133,7 +133,7 @@ class CourseList extends Component {
     return (
       <>
         <Header name="Courses" />
-        <SideNavBar />
+        <SideNavBar history={this.props.history} />
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-9">
