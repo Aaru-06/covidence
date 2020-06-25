@@ -18,7 +18,7 @@ class RegisterView extends Component {
 
     this.state = {
       flag: false,
-      local :null
+      local: null,
     };
   }
 
@@ -43,8 +43,7 @@ class RegisterView extends Component {
           this.setState({
             fire: ckey,
           });
-          localStorage.setItem("snapKey",snap);
-          
+          localStorage.setItem("snapKey", snap);
         });
       this.setState({
         flag: true,
@@ -63,16 +62,7 @@ class RegisterView extends Component {
   render() {
     console.log(this.state.fire);
     if (this.state.flag) {
-      return (
-        <Redirect
-          to={{
-            pathname: ROUTES.MYLOC,
-            state: {
-              id: this.state.local,
-            },
-          }}
-        />
-      );
+      return <Redirect to={ROUTES.DASHBOARD} />;
     }
     return (
       <div className="statpage">

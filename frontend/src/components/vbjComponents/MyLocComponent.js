@@ -9,14 +9,26 @@ import {
 import { Button, FormGroup } from "reactstrap";
 import "../../App.css";
 import "./styles/styles.css";
+import firebase from "../../config/firebase";
 class MyLoc extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userKey: "",
+    };
+  }
+
+  componentDidMount() {
+    let ref = firebase.database().ref("/Infected/");
+    ref.once("value").then((snapshot) => {
+      console.log(snapshot.val());
+    });
   }
 
   render() {
     var myLocKey = localStorage.getItem("snapKey");
-    console.log(myLocKey);
+    var sliceKey = myLocKey.slice(46);
+    console.log(sliceKey);
     return (
       <div>
         <Header name="MyLocation" />
