@@ -6,7 +6,7 @@ import img from "../../images/covid.jpg"
 import SideNavBar from "../arumugamComponents/SideNavBar"
 const Dashboard = props  => {
     // console.log("dashboard rendered")
-    // console.log(modules)
+    console.log(localStorage.getItem("snapKey"));
     return(
         <div>
             <Header name="Dashboard" />

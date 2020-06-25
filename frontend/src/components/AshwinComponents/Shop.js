@@ -34,7 +34,7 @@ const RenderCart = (props) => {
         }}
       >
         {" "}
-        {order.item} : {order.qty}{" "}
+        {order}{" "}
       </p>
     );
   });
@@ -52,9 +52,11 @@ class Shop extends Component {
       item: "",
       qty: "",
       order: [],
-      cust: "",
-      object: {},
+      store: "",
+      object: '',
+      imgurl: ''
     };
+
     this.AddCart = this.AddCart.bind(this);
     this.PlaceOrder = this.PlaceOrder.bind(this);
     this.ViewCart = this.ViewCart.bind(this);
@@ -64,14 +66,31 @@ class Shop extends Component {
     this.handleUpload = this.handleUpload.bind(this);
   }
 
+  componentDidMount() {
+	    let ref = firebase.database().ref("Stores");
+	    ref.on("value", (snapshot) => {
+	      let stores = snapshot.val();
+	      if (stores !== null) {
+	        Object.keys(stores)
+	          .filter((key) => {
+	            return stores[key].Name == this.props.location.name;
+	          })
+	          .map((key) => {
+	            this.setState({ store: key }, () => console.log(this.state.store));
+	          });
+	      }
+	    });
+	}
+
+
   handleChange = (e) => {
     this.setState({ fileval: e.target.files[0], manual: "True" }, () =>
-      console.log(this.state.fileval)
-    );
+      console.log(this.state.manual)
+    );    
   };
 
-  handleUpload = () => {
-    const uploadTask = storage
+  handleUpload = (e) => {
+  	const uploadTask = storage
       .ref(`Carts/${this.state.fileval.name}`)
       .put(this.state.fileval);
     uploadTask.on(
@@ -86,7 +105,7 @@ class Shop extends Component {
           .child(this.state.fileval.name)
           .getDownloadURL()
           .then((url) => {
-            console.log(url);
+            this.setState({imgurl: url}, ()=> console.log(this.state.imgurl));
           });
       }
     );
@@ -104,7 +123,7 @@ class Shop extends Component {
     if (this.state.item === "" || this.state.qty === "") {
       window.alert("Null Values Found ..!!");
     } else {
-      const obj = { item: this.state.item, qty: this.state.qty };
+      const obj = this.state.item + ' : ' + this.state.qty;
       const neword = this.state.order.slice();
       neword.push(obj);
       this.setState({ order: neword }, () => console.log(this.state.order));
@@ -117,20 +136,33 @@ class Shop extends Component {
 
   PlaceOrder(event, errors, values) {
     event.preventDefault();
-    let ref = firebase.database().ref("Stores");
+    let refs = firebase.database().ref();
 
-    ref.on("value", (snapshot) => {
-      let stores = snapshot.val();
-      if (stores !== null) {
-        Object.keys(stores)
-          .filter((key) => {
-            return stores[key].Name == this.props.location.name;
-          })
-          .map((key) => {
-            this.setState({ cust: key }, () => console.log(this.state.cust));
-          });
-      }
-    });
+    
+  	if(this.state.manual === "True"){
+  		refs.child("Carts").push({
+        shopId: this.state.store,
+        imageUri: this.state.imgurl,
+        manuel: this.state.manual,
+        customerId: "1234"
+      });
+  	}
+  	else{
+  		refs.child("Carts").push({
+  		Items: this.state.order,
+  		shopId: this.state.store,
+  		imageUri: "Null",
+  		manuel: this.state.manual,
+  		customerId: "1234"
+  		})
+  	}
+  	this.setState({
+        flag: true }, () => {
+        	console.log(this.state.order);
+		    console.log(this.state.store);
+		    console.log(this.state.imgurl);
+		    console.log(this.state.manual);
+        });     
   }
 
   render() {
@@ -146,7 +178,7 @@ class Shop extends Component {
               className="myImage"
               src={img}
               width="600px"
-              height="620px"
+              height="800px"
               alt="img"
             ></img>
           </div>
@@ -154,7 +186,7 @@ class Shop extends Component {
           <div className="col-12 col-sm-6">
             <div className="reg">
               <h2 id="regh2">Make Your Order</h2>
-              <AvForm>
+              <AvForm onSubmit={this.PlaceOrder} >
                 <AvField
                   className="reginput"
                   name="item"
@@ -189,9 +221,9 @@ class Shop extends Component {
                       value: true,
                       errorMessage: "Enter Quantity ..!!",
                     },
-                    number: {
-                      value: true,
-                      errorMessage: "Quantity must be a Number ..!!",
+                    pattern: {
+                      value: "^[A-Za-z0-9]+$",
+                      errorMessage: "Invalid Quantity ..!!",
                     },
                   }}
                 ></AvField>
@@ -253,15 +285,16 @@ class Shop extends Component {
                   ></i>
                   View Cart
                 </Button>
+                <button id="upload" onClick={this.handleUpload}>Upload</button>
                 <Label
                   for="files"
-                  style={{ cursor: "pointer", float: "right" }}
+                  style={{ cursor: "pointer", float: 'right'}}
                 >
                   <i
                     class="fa fa-cloud-upload"
                     style={{
                       color: "#db0202",
-                      width: "65px",
+                      width: "19px",
                       fontSize: "35px",
                     }}
                   ></i>
@@ -272,19 +305,30 @@ class Shop extends Component {
                   type="file"
                   style={{ display: "none" }}
                 />
-                <button onClick={this.handleUpload}>Upload</button>
+                
               </FormGroup>
             </div>
+            <h3 style={{marginTop: '40px'}} >Note*</h3>
+	        <p className="note" >You can Either : </p>
+	        <p className="notes" >1. Enter Items Name and Add to Cart</p>
+	        <p className="notes" style={{marginBottom: '50px'}} >2. Choose Your own Item List using <span><i
+	                    class="fa fa-cloud-upload"
+	                    style={{
+	                      color: "#db0202",
+	                      width: "20px",
+	                      fontSize: "25px",
+	                      marginRight: "8px"
+	                    }}
+	                  ></i></span> icon and <span><button disabled id="up">Upload</button> </span> </p>
           </div>
-        </div>
+        </div>        
         <Modal
           style={{ marginTop: "100px" }}
           isOpen={this.state.show}
           toggle={this.ViewCart}
         >
           <ModalHeader>
-            {" "}
-            <h2 style={{ marginLeft: "200px" }}> My Cart </h2>{" "}
+            <h2 style={{ marginLeft: "190px" }}> My Cart </h2>{" "}
           </ModalHeader>
           <ModalBody>
             <RenderCart order={this.state.order} />
@@ -297,25 +341,4 @@ class Shop extends Component {
 
 export default Shop;
 
-// ref.child("Carts").push({
 
-//       });
-
-// <Button
-//                   style={{
-//                     fontSize: "17px",
-//                     float: "right",
-//                     width: "142px",
-//                     borderWidth: "3px",
-//                     boxShadow: "0px 7px 5px #d4d4d4",
-//                   }}
-//                   color="danger"
-//                   outline="none"
-//                 >
-//                   <i
-//                     class="fas fa-clipboard-list"
-//                     aria-hidden="true"
-//                     style={{ marginRight: "7px" }}
-//                   ></i>
-//                   Manual List
-//                 </Button>
