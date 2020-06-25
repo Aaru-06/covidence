@@ -14,21 +14,32 @@ class MyLoc extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userKey: "",
+      userKey: {},
     };
   }
 
   componentDidMount() {
-    let ref = firebase.database().ref("/Infected/");
-    ref.once("value").then((snapshot) => {
-      console.log(snapshot.val());
+    let ref = firebase.database().ref();
+    ref.child("users").on("value", (snapshot) => {
+      if (snapshot.val() != null)
+        this.setState({
+          userKey: snapshot.val(),
+        });
     });
   }
 
   render() {
+    var address;
+    console.log(this.state.userKey);
     var myLocKey = localStorage.getItem("snapKey");
     var sliceKey = myLocKey.slice(46);
     console.log(sliceKey);
+    Object.keys(this.state.userKey).filter((id) => {
+      if (id == sliceKey) {
+        address = this.state.userKey[id].Address;
+      }
+    });
+    console.log(address);
     return (
       <div>
         <Header name="MyLocation" />
