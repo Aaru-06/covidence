@@ -10,7 +10,6 @@ const Landing = () => {
   return (
     <div className="bg">
       <Header name="Welcome" />
-      <SideNavBar />
       <div className="container">
         <div className="alignhome">
           <h1 style={{ marginBottom: "20px" }}>Click Here to Sign In</h1>
