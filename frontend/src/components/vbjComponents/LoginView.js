@@ -33,6 +33,7 @@ class LoginView extends Component {
       fire: "false",
       alert: false,
       disabled: true,
+      regTrigger: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSignInSubmit = this.onSignInSubmit.bind(this);
@@ -78,14 +79,26 @@ class LoginView extends Component {
           .then((result) => {
             console.log(result.user, "user");
             // fire = "true";
-            this.setState(
-              {
-                fire: "true",
-              },
-              () => {
-                console.log(this.state.fire);
-              }
-            );
+            let ref = firebase.database().ref();
+            ref.child("users").on("value", (snapshot) => {
+                if(snapshot.hasChild(result.user.uid)){
+                  this.setState({
+                    regTrigger : true
+                  })
+                }else{
+                  
+                  this.setState(
+                    {
+                      fire: "true",
+                    },
+                    () => {
+                      console.log(this.state.fire);
+                    }
+                  );
+                }
+                
+            });
+            
           })
           .catch((err) => {
             console.log(err);
@@ -108,6 +121,9 @@ class LoginView extends Component {
   render() {
     if (this.state.fire === "true") {
       return <Redirect to={ROUTES.REGISTER} />;
+    }
+    if(this.state.regTrigger){
+        return <Redirect to={ROUTES.DASHBOARD}/>;
     }
 
     return (
