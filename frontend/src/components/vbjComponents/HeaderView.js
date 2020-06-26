@@ -8,8 +8,8 @@ const Header = (props) => {
         <div className="col-12 col-sm-1">
           <img
             src={image}
-            width="100px"
-            height="auto"
+            width="70vh"
+            height="70vh"
             alt="heros"
             style={{ borderRadius: "30px" }}
           ></img>
