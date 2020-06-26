@@ -10,7 +10,7 @@ const Header = (props) => {
             src={image}
             width="75vh"
             height="75vh"
-            alt="heros"
+            alt="Heros"
             style={{width: '85px', marginTop: '-20px', borderRadius: "50%", marginLeft: '20px'}}
           ></img>
         </div>
