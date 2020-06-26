@@ -17,9 +17,9 @@ const Infected = (props) => {
   useEffect(() => {
     let ref = firebase.database().ref();
     ref.child("Infected").on("value", (snapshot) => {
-      if (snapshot.child("addr").val != null) {
+      if (snapshot.val() != null) {
         setInfect({
-          ...snapshot.child("addr").val,
+          ...snapshot.val(),
         });
       }
     });
@@ -31,11 +31,7 @@ const Infected = (props) => {
     <>
       <Header name="Infected Location" />
       <SideNavBar history={props.history} />
-      <div className="row">
-        {Object.keys(infect).map((id) => {
-          return <p></p>;
-        })}
-      </div>
+      <div className="row"></div>
     </>
   );
 };
