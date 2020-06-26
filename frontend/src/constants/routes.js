@@ -17,4 +17,4 @@ export const NEARBY_STORE = "/{STORE}/nearby-store";
 export const EPASS = "/epass";
 export const MAP_SERVICES = "/mapservices";
 export const SHOP = "/shop";
-export const INFECTED_LOC = "/infected-loc";
+export const INFECTED_LOC = "/infectedloc";
