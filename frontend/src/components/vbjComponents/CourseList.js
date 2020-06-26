@@ -134,7 +134,7 @@ class CourseList extends Component {
       <>
         <Header name="Courses" />
         <SideNavBar history={this.props.history} />
-        <div className="container">
+        <div className="container" style={{marginTop: '50px'}} >
           <div className="row">
             <div className="col-12 col-md-9">
               <CourseVideo service={service} video={video} />

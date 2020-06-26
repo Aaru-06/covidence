@@ -52,6 +52,7 @@ class Shop extends Component {
       item: "",
       qty: "",
       order: [],
+      cust: '',
       store: "",
       object: "",
       imgurl: "",
@@ -80,6 +81,10 @@ class Shop extends Component {
           });
       }
     });
+
+    var CustomerKey = localStorage.getItem("snapKey");
+    var res = CustomerKey.split("/");
+    this.setState({cust: Object.values(res).pop() }, () => console.log(this.state.cust));
   }
 
   handleChange = (e) => {
@@ -144,7 +149,7 @@ class Shop extends Component {
         shopId: this.state.store,
         imageUri: this.state.imgurl,
         manuel: this.state.manual,
-        customerId: "1234",
+        customerId: this.state.cust,
       });
     } else {
       refs.child("Carts").push({
@@ -152,7 +157,7 @@ class Shop extends Component {
         shopId: this.state.store,
         imageUri: "Null",
         manuel: this.state.manual,
-        customerId: "1234",
+        customerId: this.state.cust,
       });
     }
     this.setState(
@@ -168,9 +173,8 @@ class Shop extends Component {
     );
   }
 
-  render() {
-    var CustomerKey = localStorage.getItem("snapKeys");
-    console.log(CustomerKey);
+  render() {    
+
     if (this.state.flag) {
       return <Redirect to={ROUTES.DASHBOARD} />;
     }
@@ -295,7 +299,7 @@ class Shop extends Component {
                 </button>
                 <Label
                   for="files"
-                  style={{ cursor: "pointer", float: "right" }}
+                  style={{ cursor: "pointer",float: "right"}}
                 >
                   <i
                     class="fa fa-cloud-upload"
@@ -303,6 +307,9 @@ class Shop extends Component {
                       color: "#db0202",
                       width: "19px",
                       fontSize: "35px",
+                      marginTop: "-20px",
+                      float: "right",
+                      marginRight: "-30px"
                     }}
                   ></i>
                 </Label>

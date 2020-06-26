@@ -69,7 +69,7 @@ class Donation extends Component {
     }
 
     return (
-      <div id="scroll">
+      <div>
         <Header name="Donations" />
         <SideNavBar history={this.props.history} />
         <HelpCarousel />
@@ -83,7 +83,7 @@ class Donation extends Component {
                 inline
                 required
                 id="doncheck"
-                errorMessage="Pick one ..!!"
+                errorMessage="Choose One ..!!"
                 name="doncheck"
                 validate={{ min: { value: 1 } }}
               >

@@ -10,39 +10,69 @@ import { Button, FormGroup } from "reactstrap";
 import "../../App.css";
 import "./styles/styles.css";
 import firebase from "../../config/firebase";
+var address;
 class MyLoc extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userKey: "",
+      userKey: {},
     };
   }
 
   componentDidMount() {
-    let ref = firebase.database().ref("/Infected/");
-    ref.once("value").then((snapshot) => {
-      console.log(snapshot.val());
+    let ref = firebase.database().ref();
+    ref.child("users").on("value", (snapshot) => {
+      if (snapshot.val() != null)
+        this.setState({
+          userKey: snapshot.val(),
+        });
     });
   }
 
-  render() {
+  handleSubmit(event, errors, values) {
+    event.preventDefault();
+
     var myLocKey = localStorage.getItem("snapKey");
-    var sliceKey = myLocKey.slice(46);
+    var sliceKey = firebase.auth().currentUser.uid;
+    let ref = firebase.database().ref("Infected");
+
+    console.log(address);
+
+    if (errors.length === 0) {
+      ref.child(sliceKey.toString()).push({
+        addr: address,
+        dateAndTime: `${new Date().toUTCString()}`,
+      });
+    }
+  }
+
+  render() {
+    console.log(firebase.auth().currentUser.uid);
+    console.log(this.state.userKey);
+
+    var myLocKey = localStorage.getItem("snapKey");
+    var sliceKey = firebase.auth().currentUser.uid;
+    Object.keys(this.state.userKey).filter((id) => {
+      if (id == sliceKey) {
+        address = this.state.userKey[id].Address;
+      }
+    });
     console.log(sliceKey);
+    console.log(address);
     return (
       <div>
         <Header name="MyLocation" />
         <SideNavBar />
         <div className="container">
           <div className="row">
-            <div className="col-12">
+            <div className="col-md-3"></div>
+            <div className="col-md-6">
               <h1 className="myloch2">{this.props.key}</h1>
               <AvForm onSubmit={this.handleSubmit}>
-                <div>
+                <div className="outt">
                   <AvCheckboxGroup
                     inline
                     required
-                    className="out"
                     id="doncheck"
                     errorMessage="Pick one ..!!"
                     name="doncheck"
@@ -50,8 +80,8 @@ class MyLoc extends Component {
                   >
                     <div className="row">
                       <AvCheckbox
-                        className="out"
                         type="checkbox"
+                        className="out"
                         label="Are you infected by Covid?"
                         name="infect"
                       />
@@ -65,17 +95,8 @@ class MyLoc extends Component {
                       />
                     </div>
                   </AvCheckboxGroup>
-                  <FormGroup id="regbut">
-                    <Button
-                      style={{
-                        fontSize: "17px",
-                        marginBottom: "50px",
-                        borderWidth: "3px",
-                        boxShadow: "0px 7px 5px #d4d4d4",
-                      }}
-                      color="danger"
-                      outline="none"
-                    >
+                  <FormGroup>
+                    <Button color="danger" outline="none">
                       <i
                         class="fa fa-user-circle-o"
                         aria-hidden="true"
@@ -87,6 +108,7 @@ class MyLoc extends Component {
                 </div>
               </AvForm>
             </div>
+            <div className="col-md-3"></div>
           </div>
         </div>
       </div>

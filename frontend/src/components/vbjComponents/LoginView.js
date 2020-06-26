@@ -20,8 +20,6 @@ import * as ROUTES from "../../constants/routes";
 import "../../App.css";
 import SideNavBar from "../arumugamComponents/SideNavBar";
 
-
-
 class LoginView extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +31,7 @@ class LoginView extends Component {
       fire: "false",
       alert: false,
       disabled: true,
-      regTrigger: false
+      regTrigger: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSignInSubmit = this.onSignInSubmit.bind(this);
@@ -81,24 +79,23 @@ class LoginView extends Component {
             // fire = "true";
             let ref = firebase.database().ref();
             ref.child("users").on("value", (snapshot) => {
-                if(snapshot.hasChild(result.user.uid)){
-                  this.setState({
-                    regTrigger : true
-                  })
-                }else{
-                  
-                  this.setState(
-                    {
-                      fire: "true",
-                    },
-                    () => {
-                      console.log(this.state.fire);
-                    }
-                  );
-                }
-                
+              if (snapshot.hasChild(result.user.uid)) {
+                this.setState({
+                  regTrigger: true,
+                });
+
+                localStorage.setItem("snapKey", result.user.uid);
+              } else {
+                this.setState(
+                  {
+                    fire: "true",
+                  },
+                  () => {
+                    console.log(this.state.fire);
+                  }
+                );
+              }
             });
-            
           })
           .catch((err) => {
             console.log(err);
@@ -122,29 +119,28 @@ class LoginView extends Component {
     if (this.state.fire === "true") {
       return <Redirect to={ROUTES.REGISTER} />;
     }
-    if(this.state.regTrigger){
-        return <Redirect to={ROUTES.DASHBOARD}/>;
+    if (this.state.regTrigger) {
+      return <Redirect to={ROUTES.DASHBOARD} />;
     }
 
     return (
       <div>
-      	<Header name="Login" />
+        <Header name="Login" />
         <div id="recaptcha-container"></div>
-        
 
-        <div className="row" style={{marginTop: '0px'}}>
+        <div className="row" style={{ marginTop: "0px" }}>
           <div className="col-12 col-sm-6">
             <img
               className="myImage"
               src="https://www.designhost.in/images/sms/otp-sms.jpg"
               width="600px"
-              height="582px"
+              height="598x"
               alt="img"
             ></img>
           </div>
 
-          <div className="col-12 col-sm-4">            
-            <div style={{width: '350px', marginLeft: '100px'}}>
+          <div className="col-12 col-sm-4">
+            <div style={{ width: "350px", marginLeft: "100px" }}>
               <h2 className="topp">Login</h2>
               <Input type="text" value="+91" className="align"></Input>
               <Input
