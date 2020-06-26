@@ -45,6 +45,7 @@
 
 .jumbotron {
   background-color: lightblue;
+  height: 155px;
   color: beige;
   position:sticky;
   height:20vh;
@@ -169,7 +170,11 @@
 
 .img-circle {
   border-radius: 50%;
-  margin-bottom: 20%;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 100px;
+  height: 300px;
 
   max-width: 100%;
   max-height: 70%;
@@ -201,6 +206,7 @@
 
 .cname {
   color: wheat;
+  margin-top: 50px;
 }
 
 .fund {
@@ -220,7 +226,7 @@
 }
 
 .butpm {
-  margin: 7%;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -238,11 +244,13 @@
   height: 14px;
   border-width: 3px;
   box-shadow: 0px 7px 5px #d4d4d4;
+  margin-bottom: 20px;
 }
 
 Label{
   font-size: 20px;
-  margin-right: 20px;
+  margin-right: 50px;
+  margin-top: -20px;
 }
 
 .donation {
@@ -256,7 +264,7 @@ Label{
 }
 
 .donc{
-  width: 1040px;
+  width: 100vw;
 }
 
 .label {
@@ -268,14 +276,15 @@ Label{
 }
 
 .butdon {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 #sname {
   width: 240px;
   border-width: 3px;
   box-shadow: 0px 7px 5px #d4d4d4;
-  margin-left: 50px;
+  margin-left: 100px;
+  margin-top: 15px;
 }
 
 #pincode{
@@ -290,7 +299,7 @@ Label{
   box-shadow: 0px 7px 5px #d4d4d4;
   font-size: 18px;
   height: 38px;
-  margin-top: 36px;
+  margin-top: 33px;
   margin-left: 52px;
 }
 
@@ -299,9 +308,9 @@ select:focus {
 }
 
 .cards {
-  width: 320px;
-  margin-left: 62px;
-  margin-right: -10px;
+  width: 300px;
+  margin-left: 120px;
+  margin-right: -55px;
   padding: 20px;
   margin-bottom: 40px;
   border-width: 5px;
@@ -335,7 +344,7 @@ select:focus {
 
 #hrcard {
   margin-top: 1px;
-  width: 320px;
+  width: 300px;
   margin-left: -25px;
   background: #e3e3e3;
   height: 2.2px;
@@ -344,8 +353,6 @@ select:focus {
 }
 
 .statpage {
-  overflow: scroll;
-  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -361,7 +368,7 @@ select:focus {
   border: 3px solid #db0202;
   border-radius: 5px;
   height: 42px;
-  margin-left: 289px;
+  margin-left: 287px;
   width: 100px;
   cursor: pointer;
 }

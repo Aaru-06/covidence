@@ -299,7 +299,7 @@ class Shop extends Component {
                 </button>
                 <Label
                   for="files"
-                  style={{ cursor: "pointer", float: "right" }}
+                  style={{ cursor: "pointer",float: "right"}}
                 >
                   <i
                     class="fa fa-cloud-upload"
@@ -307,6 +307,9 @@ class Shop extends Component {
                       color: "#db0202",
                       width: "19px",
                       fontSize: "35px",
+                      marginTop: "-20px",
+                      float: "right",
+                      marginRight: "-30px"
                     }}
                   ></i>
                 </Label>

@@ -11,7 +11,7 @@
   text-align: center;
   overflow: hidden;
 }
-/* 
+ 
 .btnbg {
   background-color: white;
   border: none;
@@ -23,7 +23,7 @@
   margin: 5px;
   font-size: 16px;
   width: 240px;
-} */
+} 
 
 .outt {
   margin-top: 200px;
@@ -34,12 +34,13 @@
 .tbg {
   font-family: "Crimson Pro", serif;
   font-size: 18px;
+  margin-top: 40px;
 }
 
 .root {
   max-width: 400px;
-  margin-left: 100px;
-  margin-right: 20px;
+  margin-left: 48px;
+  margin-right: 70px;
   margin-bottom: 50px;
 }
 /* 

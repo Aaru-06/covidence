@@ -39,14 +39,14 @@ class PmFund extends Component {
               className="myImage"
               src="https://ak.picdn.net/shutterstock/videos/28458976/thumb/10.jpg?ip=x480"
               width="600px"
-              height="530px"
+              height="605px"
               alt="img"
             ></img>
           </div>
 
           <div className="col-12 col-sm-6">
             <div className="fund">
-              <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
+              <h2 style={{ textAlign: "center", marginBottom: "40px", marginTop: '30px' }}>
                 Make Your Contribution
               </h2>
               <AvForm className="margin" onSubmit={this.handleSubmit}>
@@ -57,8 +57,7 @@ class PmFund extends Component {
                   label="Name"
                   type="text"
                   innerRef={(input) => (this.pmname = input)}
-                  errorMessage="Name Required ..!!"
-                  required
+                  validate={{ required: { value: true, errorMessage: "Name Required ..!!"} }}
                 ></AvField>
                 <AvField
                   className="fundinput"
@@ -66,9 +65,8 @@ class PmFund extends Component {
                   id="amount"
                   label="Amount"
                   type="text"
-                  innerRef={(input) => (this.amount = input)}
-                  errorMessage="Enter Amount ..!!"
-                  validate={{ number: true, required: true }}
+                  innerRef={(input) => (this.amount = input)}                  
+                  validate={{ number : { value: true, errorMessage: "Invalid Amount ..!!"} , required : { value: true, errorMessage: "Amount Required ..!!" }}}
                 ></AvField>
 
                 <p style={{ marginTop: "20px", fontSize: "18px" }}>Feedback</p>

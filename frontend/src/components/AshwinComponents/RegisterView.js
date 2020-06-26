@@ -71,9 +71,9 @@ class RegisterView extends Component {
           <div className="col-12 col-sm-6">
             <img
               className="myImage"
-              src="https://cdn.kalingatv.com/wp-content/uploads/2020/04/registration.png"
+              src="https://i1.wp.com/2020.ieeeicassp.org/wp-content/uploads/2020/01/registration1.jpg?fit=855%2C515&ssl=1&w=640"
               width="600px"
-              height="925px"
+              height="930px"
               alt="img"
             ></img>
           </div>
