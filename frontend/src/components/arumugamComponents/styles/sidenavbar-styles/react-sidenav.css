@@ -1,12 +1,13 @@
 /*! react-sidenav v0.5.0 | (c) 2020 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* bottom: 0; */
+  /* left: 0; */
   position: sticky;
-  top: 170px;
+  top: 20vh;
   left: 0;
+  bottom :0;
   z-index: 1006;
   min-width: 64px;
   /* background: #db3d44; */
@@ -501,7 +502,7 @@
 /* additional styling */
 
 .snb {
-  height: calc(100vh - 170px);
+  height: 80vh;
   width: 10px;
   transition: all 1s;
   color: black;
