@@ -134,7 +134,7 @@ class LoginView extends Component {
               className="myImage"
               src="https://www.designhost.in/images/sms/otp-sms.jpg"
               width="600px"
-              height="582px"
+              height="598x"
               alt="img"
             ></img>
           </div>

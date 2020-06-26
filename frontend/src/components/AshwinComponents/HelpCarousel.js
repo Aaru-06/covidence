@@ -5,7 +5,7 @@ import '../../App.css';
 
 const HelpCarousel = () => {
     return(
-        <div className="container cname" style={{width: '1030px'}} >
+        <div className="container cname" style={{width: '100vw'}} >
                     <Carousel autoPlay className="cname">
                         <div className="row">
                             <div className="col-sm-3 text-center">

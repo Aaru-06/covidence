@@ -36,7 +36,7 @@ const TollFree = (props) => {
               <thead className="thead-light ">
                 <tr>
                   <th>Districts/States</th>
-                  <th>Emergency No</th>
+                  <th style={{textAlign: 'left'}} >Emergency No</th>
                   <th>Landline No</th>
                 </tr>
               </thead>
@@ -46,8 +46,8 @@ const TollFree = (props) => {
                   return (
                     <tr>
                       <td>{id}</td>
-                      <td>{tollInfo[id].emergency}</td>
-                      <td>{tollInfo[id].landline}</td>
+                      <td style={{textAlign: 'left'}} >{tollInfo[id].emergency}</td>
+                      <td style={{width: '140px'}} >{tollInfo[id].landline}</td>
                     </tr>
                   );
                 })}

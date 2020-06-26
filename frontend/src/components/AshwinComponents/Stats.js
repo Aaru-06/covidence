@@ -74,7 +74,7 @@ const RenderChart = (props) => {
         <Bar
           data={chartData}
           width={110}
-          height={50}
+          height={60}
           options={{ scales: { xAxes: [{ barPercentage: 0.5 }] } }}
         />
       </div>
