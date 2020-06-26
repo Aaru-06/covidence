@@ -17,11 +17,17 @@ const Infected = (props) => {
   useEffect(() => {
     let ref = firebase.database().ref();
     ref.child("Infected").on("value", (snapshot) => {
-      if (snapshot.child("addr").val != null) {
-        setInfect({
-          ...snapshot.child("addr").val,
+      // if (snapshot.child("addr").val != null) {
+      //   setInfect({
+      //     ...snapshot.child("addr").val,
+      //   });
+      // }
+      snapshot.forEach(function(childSnapshot) {
+        //Here you can access  childSnapshot.key
+        childSnapshot.forEach((snap)=>{
+          console.log(snap.child("dateAndTime").val());
         });
-      }
+     });
     });
   }, []);
 
