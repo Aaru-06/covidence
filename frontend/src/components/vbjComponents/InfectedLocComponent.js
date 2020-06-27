@@ -12,19 +12,26 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const Infected = (props) => {
-  var [infect, setInfect] = useState({});
-
+  var [infect, setInfect] = useState("");
+  var address = [];
   useEffect(() => {
     let ref = firebase.database().ref();
     ref.child("Infected").on("value", (snapshot) => {
-      if (snapshot.val() != null) {
-        setInfect({
-          ...snapshot.val(),
+      // if (snapshot.child("addr").val != null) {
+      //   setInfect({
+      //     ...snapshot.child("addr").val,
+      //   });
+      // }
+      snapshot.forEach(function (childSnapshot) {
+        //Here you can access  childSnapshot.key
+        childSnapshot.forEach((snap) => {
+          address.push(snap.child("addr").val());
+          setInfect({ ...snap.child("dateAndTime").val() });
         });
-      }
+      });
     });
   }, []);
-
+  console.log(address);
   console.log(infect);
 
   return (

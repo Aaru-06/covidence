@@ -43,6 +43,7 @@ class RegisterView extends Component {
           this.setState({
             fire: ckey,
           });
+          
           localStorage.setItem("snapKey", snap);
         });
       this.setState({

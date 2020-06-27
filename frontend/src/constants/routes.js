@@ -17,3 +17,4 @@ export const EPASS = "/epass";
 export const MAP_SERVICES = "/mapservices";
 export const SHOP = "/shop";
 export const INFECTED_LOC = "/infectedloc";
+export const LOG_OUT = "/";
