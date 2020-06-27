@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://rclemsmith.github.io/covidence",
+  "homepage":"https://rclemsmith.github.io/covidence/frontend",
   "dependencies": {
     "@firebase/storage": "^0.3.36",
     "@material-ui/core": "^4.10.2",
