@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "14be6fb92cb152ea8e624d1e689aeb68",
+    "revision": "896f9a4d40f6585b50e2701146ad0850",
     "url": "/covidence/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covidence/static/css/2.9c328e0b.chunk.css"
   },
   {
-    "revision": "bcea58cb9ab9a1d10b50",
+    "revision": "eaf772c02012b3d572ee",
     "url": "/covidence/static/css/main.df7b2058.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covidence/static/js/2.3621cfa5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bcea58cb9ab9a1d10b50",
-    "url": "/covidence/static/js/main.f78ffcd6.chunk.js"
+    "revision": "eaf772c02012b3d572ee",
+    "url": "/covidence/static/js/main.73fa9216.chunk.js"
   },
   {
     "revision": "fd79ec9c2f3800a808ba",

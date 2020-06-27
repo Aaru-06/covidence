@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/covidence/static/css/main.df7b2058.chunk.css",
-    "main.js": "/covidence/static/js/main.f78ffcd6.chunk.js",
-    "main.js.map": "/covidence/static/js/main.f78ffcd6.chunk.js.map",
+    "main.js": "/covidence/static/js/main.73fa9216.chunk.js",
+    "main.js.map": "/covidence/static/js/main.73fa9216.chunk.js.map",
     "runtime-main.js": "/covidence/static/js/runtime-main.e80cbb6f.js",
     "runtime-main.js.map": "/covidence/static/js/runtime-main.e80cbb6f.js.map",
     "static/css/2.9c328e0b.chunk.css": "/covidence/static/css/2.9c328e0b.chunk.css",
     "static/js/2.3621cfa5.chunk.js": "/covidence/static/js/2.3621cfa5.chunk.js",
     "static/js/2.3621cfa5.chunk.js.map": "/covidence/static/js/2.3621cfa5.chunk.js.map",
     "index.html": "/covidence/index.html",
-    "precache-manifest.a0f11102b5fde94db6d52b9ed25d795c.js": "/covidence/precache-manifest.a0f11102b5fde94db6d52b9ed25d795c.js",
+    "precache-manifest.870e6d689d9e4228f76f40f119862950.js": "/covidence/precache-manifest.870e6d689d9e4228f76f40f119862950.js",
     "service-worker.js": "/covidence/service-worker.js",
     "static/css/2.9c328e0b.chunk.css.map": "/covidence/static/css/2.9c328e0b.chunk.css.map",
     "static/css/main.df7b2058.chunk.css.map": "/covidence/static/css/main.df7b2058.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.9c328e0b.chunk.css",
     "static/js/2.3621cfa5.chunk.js",
     "static/css/main.df7b2058.chunk.css",
-    "static/js/main.f78ffcd6.chunk.js"
+    "static/js/main.73fa9216.chunk.js"
   ]
 }
