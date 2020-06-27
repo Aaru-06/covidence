@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "homepage":"https://rclemsmith.github.io/covidence",
   "dependencies": {
     "@firebase/storage": "^0.3.36",
