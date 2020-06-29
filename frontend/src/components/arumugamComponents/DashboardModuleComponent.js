@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./styles/dashboard/dashboard-style.css";
+
 
 class DashboardModuleComponent extends Component {
   constructor(props) {

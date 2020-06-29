@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modules from "../../constants/Modules.json";
 import SideNav, { Nav, NavItem, NavText } from "@trendmicro/react-sidenav";
-import "./styles/sidenavbar-styles/react-sidenav.css";
+import "./styles/sidenavbar/react-sidenav.css";
 
 class SideNavBar extends Component {
   constructor() {

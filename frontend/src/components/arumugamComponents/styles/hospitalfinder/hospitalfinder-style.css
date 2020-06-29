@@ -1,0 +1,22 @@
+.flex-container{
+    position : sticky;
+    display: flex;
+    float:left;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items:flex-end;
+    justify-content: flex-end;
+    align-content:flex-end;
+    height : 80vh;
+    width : 92vw;
+    top:20vh;
+    padding : 0;
+}
+
+.flex-item{
+    flex: 1 1;
+    height: inherit;
+    width : inherit;
+    text-align : center;
+    background-color: lightblue;
+}

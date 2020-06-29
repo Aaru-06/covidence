@@ -1,0 +1,36 @@
+
+/* edited by arumugam */
+
+.moduleContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .moduleComponent {
+    text-align: center;
+    font-weight: bold;
+    width: 250px;
+    height: 100px;
+    font-size: 18px;
+    border: double;
+    margin: 50px;
+    padding: 90px;
+    flex: 1 1;
+    border-radius: 50px;
+    transition-property: all;
+    transition-duration: 1s;
+  
+    /* testing purpose have to be rendered separately inside the module */
+    background-image: linear-gradient(lightblue, blue), url("../../../../images/covid.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: screen;
+  }
+  
+  .moduleComponent:hover {
+    padding: 125px;
+  }
+  
