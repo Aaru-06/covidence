@@ -94,9 +94,11 @@ const Store = (props) => {
               </CardContent>
             </CardActionArea>
             <CardActions>
+            <Link to={ROUTES.ORDERS}>
               <Button size="large" color="primary">
                 View Orders
               </Button>
+            </Link>
             </CardActions>
           </Card>
         </div>

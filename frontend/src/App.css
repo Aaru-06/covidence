@@ -273,15 +273,31 @@ select:focus {
 }
 
 .cards {
-  width: 300px;
+  width: 320px;
   margin-left: 120px;
-  margin-right: -55px;
+  margin-right: -75px;
   padding: 20px;
   margin-bottom: 40px;
   border-width: 5px;
   border-color: #e3e3e3;
   background-color: #e3e3e3;
   box-shadow: 0px 10px 15px #b3b3b3;
+}
+
+.ordcards {
+  word-spacing: 5px;
+  font-size: 17px;
+  width: 350px;
+  margin-left: 120px;
+  margin-top: 50px;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-width: 5px;
+  border-color: #e3e3e3;
+  background-color: #ebebeb;
+  box-shadow: 0px 10px 15px #b3b3b3;
+  border-radius: 25px;
+  margin-right: 10px;
 }
 
 .title {
@@ -315,9 +331,6 @@ select:focus {
   height: 2.2px;
   margin-bottom: 20px;
   border-radius: 10px;
-}
-
-.statpage {
 }
 
 ::-webkit-scrollbar {
