@@ -59,13 +59,13 @@ const Landing = () => {
 
       <div className="row">
         <div className="col-12 col-sm-6">
-          <img className="im" src={i2} width="95%" height="100%"></img>
+          <img className="im" src={i2} width="95%" height="95%"></img>
         </div>
         <div className="col-12 col-sm-6">
           <blockquote>
             <pre>
-              <h2 className="h2i">"This isn't forever.</h2>
-              <h2 className="h2r">It's just right now "</h2>
+              <h2 className="h2i">"This isn't forever</h2>
+              <h2 className="h2r">It's just right now.. "</h2>
             </pre>
           </blockquote>
           <div className="container">
