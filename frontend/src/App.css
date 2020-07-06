@@ -25,12 +25,6 @@
   min-height: 100%;
 } */
 
-.bg {
-  background-color: rgb(174, 151, 197);
-  background-size: cover;
-  min-height: 1000px;
-}
-
 .align {
   text-align: center;
   margin: 25px;
@@ -44,15 +38,15 @@
 }
 
 .jumbotron {
-  background-color: lightblue;
+  background-color: #151965;
   border-radius: 0;
   height: 155px;
   color: beige;
-  position:sticky;
-  height:20vh;
-  top:0;
-  margin:0;
-  z-index : 1006;
+  position: sticky;
+  height: 20vh;
+  top: 0;
+  margin: 0;
+  z-index: 1006;
 }
 
 @media screen and (min-width: 600px) {
@@ -79,18 +73,18 @@
 }
  */
 
-.topp{
+.topp {
   text-align: center;
   margin-left: 50px;
   padding-top: 100px;
   padding-bottom: 30px;
 }
 
-.storediv{
+.storediv {
   height: 200px;
 }
 
-#gender{
+#gender {
   margin-left: -13px;
 }
 
@@ -124,8 +118,8 @@
   text-align: center;
 }
 
-#shopbut{
-  margin-top: 40px; 
+#shopbut {
+  margin-top: 40px;
 }
 
 .genopt {
@@ -204,7 +198,7 @@
   box-shadow: 0px 7px 5px #d4d4d4;
 }
 
-.cbox{
+.cbox {
   width: 14px;
   height: 14px;
   border-width: 3px;
@@ -212,7 +206,7 @@
   margin-bottom: 20px;
 }
 
-Label{
+Label {
   font-size: 20px;
   margin-right: 50px;
   margin-top: -20px;
@@ -222,13 +216,13 @@ Label{
   align-items: center;
 }
 
-#doncheck{
+#doncheck {
   width: 1040px;
   margin-left: -13px;
   font-size: 20px;
 }
 
-.donc{
+.donc {
   width: 100vw;
 }
 
@@ -252,13 +246,13 @@ Label{
   margin-top: 15px;
 }
 
-#pincode{
+#pincode {
   border-width: 3px;
   box-shadow: 0px 7px 5px #d4d4d4;
   width: 240px;
 }
 
-#stbut{
+#stbut {
   text-align: center;
   border-width: 2px;
   box-shadow: 0px 7px 5px #d4d4d4;
@@ -338,7 +332,7 @@ select:focus {
   background: transparent;
 }
 
-#upload{
+#upload {
   background: white;
   color: #db0202;
   font-size: 17px;
@@ -351,7 +345,7 @@ select:focus {
   cursor: pointer;
 }
 
-#up{
+#up {
   background: white;
   color: #db0202;
   font-size: 12px;
@@ -362,12 +356,12 @@ select:focus {
   cursor: pointer;
 }
 
-.note{
+.note {
   font-size: 17px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-.notes{
+.notes {
   font-size: 17px;
   font-weight: bold;
   word-spacing: 5px;
