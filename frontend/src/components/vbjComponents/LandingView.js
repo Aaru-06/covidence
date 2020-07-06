@@ -6,12 +6,13 @@ import * as ROUTES from "../../constants/routes";
 import "./styles/style1.css";
 import Header from "./HeaderView";
 import SideNavBar from "../arumugamComponents/SideNavBar";
-import i2 from "../../images/doc.jfif";
+import i2 from "../../images/world.jfif";
+import image from "../../images/covid191.jpeg";
 
 const Landing = () => {
   return (
     <div>
-      <Jumbotron className="jumbotron">
+      {/* <Jumbotron className="jumbotron">
         <div className="container">
           <div className="row row-header">
             <div className="col-12 col-sm-12">
@@ -22,7 +23,29 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </Jumbotron>
+      </Jumbotron> */}
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <span>
+            <img
+              src={image}
+              width="75vh"
+              height="75vh"
+              alt="Heros"
+              style={{
+                width: "85px",
+                marginTop: "-20px",
+                borderRadius: "50%",
+                marginLeft: "20px",
+              }}
+            ></img>
+            <h1 class="display-4">
+              <span className="book header">COVID</span>
+              <span className="header">ENCE</span>
+            </h1>
+          </span>
+        </div>
+      </div>
       {/* <div className="container">
         <div className="alignhome">
           <h1 style={{ marginBottom: "20px" }}>Click Here to Sign In</h1>
@@ -36,7 +59,7 @@ const Landing = () => {
 
       <div className="row">
         <div className="col-12 col-sm-6">
-          <img className="im" src={i2} width="80%" height="60%"></img>
+          <img className="im" src={i2} width="95%" height="100%"></img>
         </div>
         <div className="col-12 col-sm-6">
           <blockquote>

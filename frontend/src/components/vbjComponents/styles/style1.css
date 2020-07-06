@@ -1,4 +1,4 @@
-.jumbotron {
+/* .jumbotron {
   background-color: #151965;
   border-radius: 0;
   height: 155px;
@@ -8,6 +8,12 @@
   top: 0;
   margin: 0;
   z-index: 1006;
+  text-align: center;
+} */
+
+.jumbotron {
+  background-color: #151965;
+  color: beige;
   text-align: center;
 }
 
@@ -41,13 +47,14 @@ body {
 }
 
 .h2r {
-  margin-left: 275px;
+  margin-left: 205px;
   font-family: "Crimson Pro", serif;
   font-size: 35px;
   color: #f00;
 }
 
 .h2i {
+  margin-left: 50px;
   font-size: 35px;
   color: #151965;
   font-family: "Crimson Pro", serif;
