@@ -11,7 +11,7 @@ class SideNavBar extends Component {
   }
 
   handleNavItemClick(event) {
-    if (event.target.innerHTML == "logout") {
+    if (event.target.innerHTML === "logout") {
       this.props.history.push("/");
     } else {
       this.props.history.push(event.target.innerHTML);

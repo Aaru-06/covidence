@@ -8,15 +8,30 @@
     justify-content: flex-end;
     align-content:flex-end;
     height : 80vh;
-    width : 92vw;
+    width : 90vw;
     top:20vh;
     padding : 0;
 }
 
 .flex-item{
+    position : relative;
     flex: 1 1;
     height: inherit;
     width : inherit;
     text-align : center;
     background-color: lightblue;
+}
+.flex-item-map{
+    flex: 3 3;
+    height: inherit;
+    width : inherit;
+    text-align : center;
+    background-color: lightblue;
+}
+
+.hospital-finder-btn{
+    position : absolute;
+    top : 90%;
+    right : calc(50% - 50px);
+    z-index : 10000;
 }

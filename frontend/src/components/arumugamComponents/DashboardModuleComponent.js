@@ -11,7 +11,7 @@ class DashboardModuleComponent extends Component {
   clickHandler(event) {
     const name = event.target.id;
     console.log(name);
-    if (name == "logout") {
+    if (name === "logout") {
       this.props.history.push("/");
     } else {
       this.props.history.push(`/${name}`);
