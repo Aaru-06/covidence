@@ -25,12 +25,6 @@
   min-height: 100%;
 } */
 
-.bg {
-  background-color: rgb(174, 151, 197);
-  background-size: cover;
-  min-height: 1000px;
-}
-
 .align {
   text-align: center;
   margin: 25px;
@@ -43,15 +37,16 @@
   margin: 25px;
 }
 
-.jumbotron {
-  background-color: lightblue;
+.jumbotro {
+  background-color: #151965;
+  border-radius: 0;
   height: 155px;
   color: beige;
-  position:sticky;
-  height:20vh;
-  top:0;
-  margin:0;
-  z-index : 1006;
+  position: sticky;
+  height: 20vh;
+  top: 0;
+  margin: 0;
+  z-index: 1006;
 }
 
 @media screen and (min-width: 600px) {
@@ -78,18 +73,18 @@
 }
  */
 
-.topp{
+.topp {
   text-align: center;
   margin-left: 50px;
   padding-top: 100px;
   padding-bottom: 30px;
 }
 
-.storediv{
+.storediv {
   height: 200px;
 }
 
-#gender{
+#gender {
   margin-left: -13px;
 }
 
@@ -123,8 +118,8 @@
   text-align: center;
 }
 
-#shopbut{
-  margin-top: 40px; 
+#shopbut {
+  margin-top: 40px;
 }
 
 .genopt {
@@ -132,42 +127,6 @@
   margin-left: 100px;
   font-size: 18px;
 }
-
-/* edited by arumugam */
-
-.moduleContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.moduleComponent {
-  text-align: center;
-  font-weight: bold;
-  width: 250px;
-  height: 100px;
-  font-size: 18px;
-  border: double;
-  margin: 50px;
-  padding: 90px;
-  flex: 1 1;
-  border-radius: 50px;
-  transition-property: all;
-  transition-duration: 1s;
-
-  /* testing purpose have to be rendered separately inside the module */
-  background-image: linear-gradient(lightblue, blue), url("./images/covid.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: screen;
-}
-
-.moduleComponent:hover {
-  padding: 125px;
-}
-
 .img-circle {
   border-radius: 50%;
   margin-bottom: 30px;
@@ -239,7 +198,7 @@
   box-shadow: 0px 7px 5px #d4d4d4;
 }
 
-.cbox{
+.cbox {
   width: 14px;
   height: 14px;
   border-width: 3px;
@@ -247,7 +206,7 @@
   margin-bottom: 20px;
 }
 
-Label{
+Label {
   font-size: 20px;
   margin-right: 50px;
   margin-top: -20px;
@@ -257,13 +216,13 @@ Label{
   align-items: center;
 }
 
-#doncheck{
+#doncheck {
   width: 1040px;
   margin-left: -13px;
   font-size: 20px;
 }
 
-.donc{
+.donc {
   width: 100vw;
 }
 
@@ -287,13 +246,13 @@ Label{
   margin-top: 15px;
 }
 
-#pincode{
+#pincode {
   border-width: 3px;
   box-shadow: 0px 7px 5px #d4d4d4;
   width: 240px;
 }
 
-#stbut{
+#stbut {
   text-align: center;
   border-width: 2px;
   box-shadow: 0px 7px 5px #d4d4d4;
@@ -308,15 +267,31 @@ select:focus {
 }
 
 .cards {
-  width: 300px;
+  width: 320px;
   margin-left: 120px;
-  margin-right: -55px;
+  margin-right: -75px;
   padding: 20px;
   margin-bottom: 40px;
   border-width: 5px;
   border-color: #e3e3e3;
   background-color: #e3e3e3;
   box-shadow: 0px 10px 15px #b3b3b3;
+}
+
+.ordcards {
+  word-spacing: 5px;
+  font-size: 17px;
+  width: 350px;
+  margin-left: 120px;
+  margin-top: 50px;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-width: 5px;
+  border-color: #e3e3e3;
+  background-color: #ebebeb;
+  box-shadow: 0px 10px 15px #b3b3b3;
+  border-radius: 25px;
+  margin-right: 10px;
 }
 
 .title {
@@ -352,15 +327,12 @@ select:focus {
   border-radius: 10px;
 }
 
-.statpage {
-}
-
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
 
-#upload{
+#upload {
   background: white;
   color: #db0202;
   font-size: 17px;
@@ -373,7 +345,7 @@ select:focus {
   cursor: pointer;
 }
 
-#up{
+#up {
   background: white;
   color: #db0202;
   font-size: 12px;
@@ -384,12 +356,12 @@ select:focus {
   cursor: pointer;
 }
 
-.note{
+.note {
   font-size: 17px;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-.notes{
+.notes {
   font-size: 17px;
   font-weight: bold;
   word-spacing: 5px;

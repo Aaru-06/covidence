@@ -1,3 +1,15 @@
 {
-    "dashboardModules" : ["mapservices","pmfund","stats","courses","tollfree","store","myorders","volunteer-reg","donation","infectedloc","myloc","epass","logout"]
+  "dashboardModules": [
+    "mapservices",
+    "pmfund",
+    "stats",
+    "courses",
+    "tollfree",
+    "store",
+    "myloc",
+    "volunteer-reg",
+    "donation",
+    "epass",
+    "logout"
+  ]
 }

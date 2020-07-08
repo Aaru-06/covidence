@@ -49,6 +49,7 @@ class MyLoc extends Component {
   render() {
     console.log(firebase.auth().currentUser.uid);
     console.log(this.state.userKey);
+    console.log(localStorage.getItem("snapKey"));
 
     var myLocKey = localStorage.getItem("snapKey");
     var sliceKey = firebase.auth().currentUser.uid;

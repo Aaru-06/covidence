@@ -1,0 +1,61 @@
+/* .jumbotron {
+  background-color: #151965;
+  border-radius: 0;
+  height: 155px;
+  color: beige;
+  position: sticky;
+  height: 20vh;
+  top: 0;
+  margin: 0;
+  z-index: 1006;
+  text-align: center;
+} */
+
+.jumbotron {
+  background-color: #151965;
+  color: beige;
+  text-align: center;
+}
+
+/* .bg {
+  background-color: rgb(174, 151, 197);
+  background-size: cover;
+  min-height: 1000px;
+} */
+
+.h3Sty {
+  font-style: italic;
+}
+.header {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 76, 1)
+  );
+}
+
+body {
+  background-color: #151965;
+  color: #ececec;
+}
+.book {
+  color: #f00;
+}
+
+.im {
+  margin-left: 5%;
+}
+
+.h2r {
+  margin-left: 205px;
+  font-family: "Crimson Pro", serif;
+  font-size: 35px;
+  color: #f00;
+}
+
+.h2i {
+  margin-left: 50px;
+  font-size: 35px;
+  color: #151965;
+  font-family: "Crimson Pro", serif;
+}

@@ -1,32 +1,43 @@
-import React,{Component} from 'react'
-import Modules from "../../constants/Modules.json"
-import SideNav, {Nav,NavItem,NavText} from "@trendmicro/react-sidenav"
-import "./styles/sidenavbar-styles/react-sidenav.css"
+import React, { Component } from "react";
+import Modules from "../../constants/Modules.json";
+import SideNav, { Nav, NavItem, NavText } from "@trendmicro/react-sidenav";
+import "./styles/sidenavbar/react-sidenav.css";
 
-class SideNavBar extends Component{
-    constructor(){
-        super()
-        this.modules = Modules.dashboardModules;
-        this.handleNavItemClick = this.handleNavItemClick.bind(this);
+class SideNavBar extends Component {
+  constructor() {
+    super();
+    this.modules = Modules.dashboardModules;
+    this.handleNavItemClick = this.handleNavItemClick.bind(this);
+  }
+
+  handleNavItemClick(event) {
+    if (event.target.innerHTML === "logout") {
+      this.props.history.push("/");
+    } else {
+      this.props.history.push(event.target.innerHTML);
     }
+  }
 
-
-    handleNavItemClick(event){
-        this.props.history.push(event.target.innerHTML);
-    }
-
-    render(){
-        // console.log(this.props)
-        // navigation code to be written in onSelect props of sidenav
-        return(
-            <SideNav className="snb">
-                <Nav>
-                    {this.modules.map((obj,index)=> <NavItem className="navitem" key={index} onClick={this.handleNavItemClick}><NavText className="navtext" key={index}>{obj}</NavText></NavItem>)}
-                </Nav>
-            </SideNav>
-        )
-    }
-
-    
+  render() {
+    // console.log(this.props)
+    // navigation code to be written in onSelect props of sidenav
+    return (
+      <SideNav className="snb">
+        <Nav>
+          {this.modules.map((obj, index) => (
+            <NavItem
+              className="navitem"
+              key={index}
+              onClick={this.handleNavItemClick}
+            >
+              <NavText className="navtext" key={index}>
+                {obj}
+              </NavText>
+            </NavItem>
+          ))}
+        </Nav>
+      </SideNav>
+    );
+  }
 }
-export default SideNavBar
+export default SideNavBar;
