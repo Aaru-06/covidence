@@ -15,8 +15,8 @@ class Infected extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      infect: "",
-      address: "",
+      infect: [],
+      address: [],
     };
   }
 
@@ -33,23 +33,30 @@ class Infected extends Component {
       snapshot.forEach(function (childSnapshot) {
         //Here you can access  childSnapshot.key
         childSnapshot.forEach((snap) => {
-          console.log(snap.child("addr").val());
-          console.log(snap.child("dateAndTime").val());
-          address.push(snap.child("addr").val());
-
+          // console.log(snap.child("addr").val());
+          // console.log(snap.child("dateAndTime").val());
+          // address.push(snap.child("addr").val());
+          // console.log("INSIDE INFECTED LOC")
           infectedloc.setState({
-            infect: snap.child("dateAndTime").val(),
-            address: snap.child("addr").val(),
+            infect: infectedloc.state.infect.concat([snap.child("dateAndTime").val()]),
+            address : infectedloc.state.address.concat([snap.child("addr").val()])
           });
+         
         });
       });
     });
-    console.log(address);
-    console.log(this.state.address);
-    console.log(this.state.infect);
+    // console.log(address);
+    // console.log(this.state.address);
+    // console.log(this.state.infect);
+    // console.log("AFTER SET STATE");
+    // console.log(infectedloc.state.address.length);
+    // console.log(infectedloc.state.infect);
+    
   }
 
   render() {
+    console.log(this.state.infect);
+    // console.log(this.state.address);
     return (
       <>
         <Header name="Infected Location" />
