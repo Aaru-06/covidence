@@ -11,9 +11,9 @@ class CourseVideo extends Component {
     video: PropTypes.string.isRequired,
   };
   static urlMap = new Map([
-    ["youtube", "http://www.youtube.com/embed/"],
-    ["vimeo", "http://player.vimeo.com/video/"],
-    ["dailymotion", "http://www.dailymotion.com/embed/video/"],
+    ["youtube", "https://www.youtube.com/embed/"],
+    ["vimeo", "https://player.vimeo.com/video/"],
+    ["dailymotion", "https://www.dailymotion.com/embed/video/"],
   ]);
 
   getIdFromVideo(vString) {
