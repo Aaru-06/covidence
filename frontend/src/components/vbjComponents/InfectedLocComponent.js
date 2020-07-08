@@ -3,13 +3,8 @@ import firebase from "../../config/firebase";
 import Header from "./HeaderView";
 import "./styles/styles.css";
 import SideNavBar from "../arumugamComponents/SideNavBar";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+
+import InfectedCard from "./InfectedCardComponent";
 
 class Infected extends Component {
   constructor(props) {
@@ -38,10 +33,13 @@ class Infected extends Component {
           // address.push(snap.child("addr").val());
           // console.log("INSIDE INFECTED LOC")
           infectedloc.setState({
-            infect: infectedloc.state.infect.concat([snap.child("dateAndTime").val()]),
-            address : infectedloc.state.address.concat([snap.child("addr").val()])
+            infect: infectedloc.state.infect.concat([
+              snap.child("dateAndTime").val(),
+            ]),
+            address: infectedloc.state.address.concat([
+              snap.child("addr").val(),
+            ]),
           });
-         
         });
       });
     });
@@ -51,17 +49,23 @@ class Infected extends Component {
     // console.log("AFTER SET STATE");
     // console.log(infectedloc.state.address.length);
     // console.log(infectedloc.state.infect);
-    
   }
 
   render() {
     console.log(this.state.infect);
-    // console.log(this.state.address);
+    var card = this.state.address.map((id) => {
+      if (id != null) {
+        return <InfectedCard infected={id} />;
+      }
+    });
+    console.log(this.state.address);
+
     return (
       <>
         <Header name="Infected Location" />
         <SideNavBar history={this.props.history} />
-        <div className="row"></div>
+
+        <div className="row">{card}</div>
       </>
     );
   }
