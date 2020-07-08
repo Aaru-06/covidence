@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://aaru-06.github.io/covidence",
   "dependencies": {
     "@firebase/storage": "^0.3.36",
