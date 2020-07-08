@@ -1,28 +1,30 @@
 {
   "files": {
-    "main.css": "/covidence/static/css/main.df7b2058.chunk.css",
-    "main.js": "/covidence/static/js/main.73fa9216.chunk.js",
-    "main.js.map": "/covidence/static/js/main.73fa9216.chunk.js.map",
+    "main.css": "/covidence/static/css/main.f52bd411.chunk.css",
+    "main.js": "/covidence/static/js/main.84bdde35.chunk.js",
+    "main.js.map": "/covidence/static/js/main.84bdde35.chunk.js.map",
     "runtime-main.js": "/covidence/static/js/runtime-main.e80cbb6f.js",
     "runtime-main.js.map": "/covidence/static/js/runtime-main.e80cbb6f.js.map",
     "static/css/2.9c328e0b.chunk.css": "/covidence/static/css/2.9c328e0b.chunk.css",
-    "static/js/2.3621cfa5.chunk.js": "/covidence/static/js/2.3621cfa5.chunk.js",
-    "static/js/2.3621cfa5.chunk.js.map": "/covidence/static/js/2.3621cfa5.chunk.js.map",
+    "static/js/2.8e62c0dc.chunk.js": "/covidence/static/js/2.8e62c0dc.chunk.js",
+    "static/js/2.8e62c0dc.chunk.js.map": "/covidence/static/js/2.8e62c0dc.chunk.js.map",
     "index.html": "/covidence/index.html",
-    "precache-manifest.870e6d689d9e4228f76f40f119862950.js": "/covidence/precache-manifest.870e6d689d9e4228f76f40f119862950.js",
+    "precache-manifest.db5437fa7f424ff8d403c3f5357a07ff.js": "/covidence/precache-manifest.db5437fa7f424ff8d403c3f5357a07ff.js",
     "service-worker.js": "/covidence/service-worker.js",
     "static/css/2.9c328e0b.chunk.css.map": "/covidence/static/css/2.9c328e0b.chunk.css.map",
-    "static/css/main.df7b2058.chunk.css.map": "/covidence/static/css/main.df7b2058.chunk.css.map",
-    "static/js/2.3621cfa5.chunk.js.LICENSE.txt": "/covidence/static/js/2.3621cfa5.chunk.js.LICENSE.txt",
+    "static/css/main.f52bd411.chunk.css.map": "/covidence/static/css/main.f52bd411.chunk.css.map",
+    "static/js/2.8e62c0dc.chunk.js.LICENSE.txt": "/covidence/static/js/2.8e62c0dc.chunk.js.LICENSE.txt",
+    "static/media/404.jpeg": "/covidence/static/media/404.4ab58fae.jpeg",
     "static/media/covid.jpg": "/covidence/static/media/covid.1aef562d.jpg",
     "static/media/covid191.jpeg": "/covidence/static/media/covid191.a78e51e0.jpeg",
-    "static/media/shop.jpg": "/covidence/static/media/shop.bc477d0d.jpg"
+    "static/media/shop.jpg": "/covidence/static/media/shop.bc477d0d.jpg",
+    "static/media/world.jfif": "/covidence/static/media/world.426b2e2e.jfif"
   },
   "entrypoints": [
     "static/js/runtime-main.e80cbb6f.js",
     "static/css/2.9c328e0b.chunk.css",
-    "static/js/2.3621cfa5.chunk.js",
-    "static/css/main.df7b2058.chunk.css",
-    "static/js/main.73fa9216.chunk.js"
+    "static/js/2.8e62c0dc.chunk.js",
+    "static/css/main.f52bd411.chunk.css",
+    "static/js/main.84bdde35.chunk.js"
   ]
 }
