@@ -46,16 +46,133 @@ body {
   margin-left: 5%;
 }
 
-.h2r {
-  margin-left: 205px;
-  font-family: "Crimson Pro", serif;
-  font-size: 35px;
-  color: #f00;
+@media only screen and (min-width: 1200px) {
+  .h2i {
+    margin-left: 50px;
+    font-size: 35px;
+    color: #151965;
+    font-family: "Crimson Pro", serif;
+  }
+
+  body {
+    background-color: #151965;
+    color: #ececec;
+  }
+
+  .h2r {
+    margin-left: 205px;
+    font-family: "Crimson Pro", serif;
+    font-size: 35px;
+    color: #f00;
+  }
 }
 
-.h2i {
-  margin-left: 50px;
-  font-size: 35px;
-  color: #151965;
-  font-family: "Crimson Pro", serif;
+@media only screen and (min-width: 320px) and (max-width: 410px) {
+  .h2i {
+    margin-left: 15px;
+    font-size: 35px;
+    color: #151965;
+    font-family: "Crimson Pro", serif;
+  }
+  .h2r {
+    margin-left: 65px;
+    font-family: "Crimson Pro", serif;
+    font-size: 35px;
+    color: #f00;
+  }
+
+  .im {
+    width: 50vh;
+  }
+
+  body {
+    background-color: #151965;
+    color: #ececec;
+    width: 370px;
+  }
+}
+
+@media only screen and (min-width: 411px) and (max-width: 767px) {
+  .bq {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .h2i {
+    margin-left: 35px;
+    font-size: 35px;
+    color: #151965;
+    font-family: "Crimson Pro", serif;
+  }
+  .h2r {
+    margin-top: 20px;
+    margin-left: 165px;
+
+    font-family: "Crimson Pro", serif;
+    font-size: 35px;
+    color: #f00;
+  }
+
+  .im {
+    width: 60vh;
+  }
+
+  body {
+    background-color: #151965;
+    color: #ececec;
+    width: 511px;
+  }
+}
+
+/* @media only screen and (min-width: 768px) and (max-width: 979px) {
+  .im {
+    width: 500vh;
+  }
+} */
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  .im {
+    width: 66vh;
+  }
+
+  .h2i {
+    margin-left: 105px;
+    font-size: 35px;
+    color: #151965;
+    font-family: "Crimson Pro", serif;
+  }
+  .h2r {
+    margin-top: 20px;
+    margin-left: 405px;
+
+    font-family: "Crimson Pro", serif;
+    font-size: 35px;
+    color: #f00;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .im {
+    width: 65vh;
+  }
+
+  .bq {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .h2i {
+    margin-left: 175px;
+    font-size: 45px;
+    color: #151965;
+    font-family: "Crimson Pro", serif;
+  }
+  .h2r {
+    margin-top: 20px;
+    margin-left: 545px;
+
+    font-family: "Crimson Pro", serif;
+    font-size: 45px;
+    color: #f00;
+  }
 }

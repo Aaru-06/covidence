@@ -29,6 +29,7 @@ const Landing = () => {
           <span>
             <img
               src={image}
+              className="imground"
               width="75vh"
               height="75vh"
               alt="Heros"
@@ -58,11 +59,11 @@ const Landing = () => {
       </div> */}
 
       <div className="row">
-        <div className="col-12 col-sm-6">
+        <div className="col-12 col-xl-6">
           <img className="im" src={i2} width="95%" height="95%"></img>
         </div>
-        <div className="col-12 col-sm-6">
-          <blockquote>
+        <div className="col-12 col-xl-6">
+          <blockquote className="bq">
             <pre>
               <h2 className="h2i">"This isn't forever</h2>
               <h2 className="h2r">It's just right now.. "</h2>
